@@ -1,0 +1,58 @@
+@use "../abstracts/mixins";
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  // this defines what 1rem is
+  font-size: 62.5%; //1rem = 10px, 10/16 = 62.5%
+
+  @include mixins.respond(tab-port) {
+    //width <900px ?
+    font-size: 50%; //1rem = 8px, 8/16 = 50%
+  }
+
+  @include mixins.respond(tab-land) {
+    //width <1200px ?
+    font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
+  }
+
+  @include mixins.respond(big-desktop) {
+    font-size: 75%; //1rem = 12px, 12/16 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding-top: 2.5rem;
+
+  @include mixins.respond(tab-port) {
+    //width <900px ?
+    padding: 0;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.route-guard-loading {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
