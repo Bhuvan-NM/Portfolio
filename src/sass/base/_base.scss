@@ -4,8 +4,10 @@
 *::after,
 *::before {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   box-sizing: inherit;
+  outline: none;
+  border: none;
 }
 
 html {
@@ -29,12 +31,17 @@ html {
 
 body {
   box-sizing: border-box;
-  padding-top: 2.5rem;
+  padding: 0 2rem;
 
   @include mixins.respond(tab-port) {
     //width <900px ?
     padding: 0;
   }
+}
+
+#hero {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .sr-only {

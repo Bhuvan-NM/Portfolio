@@ -3,8 +3,10 @@
 *::after,
 *::before {
   margin: 0;
-  padding: 0;
+  padding: 1rem;
   box-sizing: inherit;
+  outline: none;
+  border: none;
 }
 
 html {
@@ -13,7 +15,12 @@ html {
 
 body {
   box-sizing: border-box;
-  padding-top: 2.5rem;
+  padding: 0 2rem;
+}
+
+#hero {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .sr-only {
@@ -39,8 +46,63 @@ body {
 body {
   font-family: "Oswald", sans-serif;
   font-weight: 400;
-  /*font-size: 16rem;*/
+  font-size: 2rem;
   line-height: 1.7;
+}
+
+.main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.socials-icon {
+  width: 6rem;
+  height: 6rem;
+}
+@media (min-width: 40em) {
+  .socials-icon {
+    width: 8rem;
+    height: 8rem;
+  }
+}
+.socials-icon {
+  color: var(--color-primary);
+  margin: 0 1rem;
+  transition: color 0.3s ease;
+}
+.socials-icon:hover {
+  color: var(--color-secondary);
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  object-fit: cover;
+}
+
+.header-logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #4b5563;
+  align-items: center;
+}
+.header-logo span {
+  color: #3b82f6;
+  font-size: 3rem;
+  margin-left: -1rem;
+}
+
+.navbar {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 /*# sourceMappingURL=style.css.map */
