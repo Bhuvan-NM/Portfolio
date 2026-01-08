@@ -11,31 +11,28 @@
 }
 
 html {
-  // this defines what 1rem is
-  font-size: 62.5%; //1rem = 10px, 10/16 = 62.5%
+  // this defines what 1rem is (mobile-first)
+  font-size: 50%; //1rem = 8px, 8/16 = 50%
 
-  @include mixins.respond(tab-port) {
-    //width <900px ?
-    font-size: 50%; //1rem = 8px, 8/16 = 50%
-  }
-
-  @include mixins.respond(tab-land) {
-    //width <1200px ?
+  @include mixins.respond(md) {
     font-size: 56.25%; //1rem = 9px, 9/16 = 56.25%
   }
 
-  @include mixins.respond(big-desktop) {
+  @include mixins.respond(lg) {
+    font-size: 62.5%; //1rem = 10px, 10/16 = 62.5%
+  }
+
+  @include mixins.respond(2xl) {
     font-size: 75%; //1rem = 12px, 12/16 = 75%
   }
 }
 
 body {
   box-sizing: border-box;
-  padding: 0 2rem;
+  padding: 0;
 
-  @include mixins.respond(tab-port) {
-    //width <900px ?
-    padding: 0;
+  @include mixins.respond(lg) {
+    padding: 0 2rem;
   }
 }
 
