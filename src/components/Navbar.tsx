@@ -8,7 +8,7 @@ interface NavbarProps {
 const items = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -36,7 +36,11 @@ const Navbar: React.FC<NavbarProps> = ({ classname = "" }) => {
           href="#home"
           className="header-logo"
         >
-          Bhuvan<span className="header-logo-dot" aria-hidden="true" />
+          Bhuvan
+          <span
+            className="header-logo-dot"
+            aria-hidden="true"
+          />
         </a>
 
         <nav>

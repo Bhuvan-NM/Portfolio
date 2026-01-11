@@ -28,7 +28,7 @@
 
   @include respond(sm) {
     display: inline-block;
-    padding: 0.8rem 1.6rem;
+    padding: 1rem 2.6rem;
     background-color: $colour-primary-accent;
     color: white;
     font-size: 1.6rem;
@@ -61,7 +61,7 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 3rem;
-    color: $colour-secondary-txt;
+    color: $colour-accent-txt;
   }
 
   @include respond(sm) {
