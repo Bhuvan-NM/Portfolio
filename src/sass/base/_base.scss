@@ -34,6 +34,10 @@ body {
   @include mixins.respond(lg) {
     padding: 0 2rem;
   }
+
+  @include mixins.respond(sm) {
+    padding: 0 1rem;
+  }
 }
 
 #hero {

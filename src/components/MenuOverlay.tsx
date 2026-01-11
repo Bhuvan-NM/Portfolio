@@ -11,6 +11,7 @@ const items: MenuItem[] = [
 
 const MenuOverlay = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeHref, setActiveHref] = useState(items[0]?.href ?? "#");
   const btnRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
@@ -52,6 +53,19 @@ const MenuOverlay = () => {
     //when opening re-measure right away (button could have moved due to safe areas)
     if (isOpen) updateClipOrigin();
   }, [isOpen]);
+
+  // track active menu item by hash
+  useEffect(() => {
+    const syncActiveHref = () => {
+      const hash = window.location.hash;
+      const match = items.some((item) => item.href === hash);
+      setActiveHref(match ? hash : items[0]?.href ?? "#");
+    };
+
+    syncActiveHref();
+    window.addEventListener("hashchange", syncActiveHref);
+    return () => window.removeEventListener("hashchange", syncActiveHref);
+  }, []);
 
   // ESC to close
   useEffect(() => {
@@ -131,6 +145,7 @@ const MenuOverlay = () => {
               href={it.href}
               ref={i === 0 ? firstLinkRef : undefined}
               className="menuLink"
+              aria-current={activeHref === it.href ? "page" : undefined}
               onClick={() => setIsOpen(false)}
             >
               {it.label}

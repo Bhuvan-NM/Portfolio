@@ -37,6 +37,11 @@ body {
     padding: 0 2rem;
   }
 }
+@media (min-width: 640px) {
+  body {
+    padding: 0 1rem;
+  }
+}
 
 #hero {
   height: 100vh;
@@ -102,19 +107,24 @@ body {
 }
 
 .header-logo {
-  font-size: 2.5rem;
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 4rem;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #4b5563;
-  align-items: center;
 }
-.header-logo span {
-  color: #3b82f6;
-  font-size: 3rem;
-  margin-left: -1rem;
-  line-height: 0.2;
+
+.header-logo-dot {
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  margin-left: 0.3rem;
+  border-radius: 50%;
+  background-color: #00a7e1;
+  transform: translateY(0.15rem) scale(0.7);
 }
 
 .header-btn {
@@ -124,7 +134,7 @@ body {
   .header-btn {
     display: inline-block;
     padding: 0.8rem 1.6rem;
-    background-color: #3b82f6;
+    background-color: #00a7e1;
     color: white;
     font-size: 1.6rem;
     font-weight: 600;
@@ -134,7 +144,7 @@ body {
     transition: background-color 0.3s ease;
   }
   .header-btn:hover {
-    background-color: rgb(104.6046511628, 43.6686046512, 243.3313953488);
+    background-color: rgb(0, 22.202247191, 38);
   }
 }
 
@@ -148,13 +158,25 @@ body {
 }
 .navbar--component {
   display: none;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 3rem;
+  color: #4b5563;
 }
 @media (min-width: 640px) {
   .navbar .navbar--component {
     display: inline-flex;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 3rem;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 20px;
+    transition: transform 200ms ease, box-shadow 200ms ease, background-color 200ms ease, color 200ms ease;
+  }
+  .navbar .navbar--component[aria-current=page] {
+    background-color: #ffffff;
+    color: #003459;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 0.8rem 1.8rem rgba(0, 52, 89, 0.25);
+    transform: translateY(-2px);
   }
 }
 
@@ -167,7 +189,7 @@ body {
   height: 48px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #111;
+  background: #00a7e1;
   color: #fff;
   cursor: pointer;
   font-size: 18px;
@@ -178,7 +200,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: #0b0b0b;
+  background: rgba(179, 180, 181, 0.95);
   height: 100dvh; /* mobile-safe viewport */
   opacity: 0;
   pointer-events: none;
@@ -231,8 +253,18 @@ body {
   transition-delay: 240ms;
 }
 
-.menuLink:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+.overlay.open .menuLink:nth-child(4) {
+  transition-delay: 300ms;
+}
+
+.menuLink:focus-visible {
+  outline: 2px solid rgba(0, 52, 89, 0.6);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+.menuLink[aria-current=page] {
+  outline: 2px solid rgba(0, 52, 89, 0.85);
   outline-offset: 6px;
   border-radius: 12px;
 }

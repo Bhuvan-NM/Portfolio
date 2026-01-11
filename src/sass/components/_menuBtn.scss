@@ -1,4 +1,5 @@
 @use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
 
 .menuBtn {
   position: fixed;
@@ -11,7 +12,7 @@
   height: 48px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: #111;
+  background: $colour-primary-accent;
   color: #fff;
   cursor: pointer;
   font-size: 18px;
@@ -23,7 +24,7 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: #0b0b0b;
+  background: rgba($colour-secondary-bg, 0.95);
 
   height: 100dvh; /* mobile-safe viewport */
   opacity: 0;
@@ -79,8 +80,18 @@
   transition-delay: 240ms;
 }
 
-.menuLink:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+.overlay.open .menuLink:nth-child(4) {
+  transition-delay: 300ms;
+}
+
+.menuLink:focus-visible {
+  outline: 2px solid rgba($colour-secondary-accent, 0.6);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+.menuLink[aria-current="page"] {
+  outline: 2px solid rgba($colour-secondary-accent, 0.85);
   outline-offset: 6px;
   border-radius: 12px;
 }

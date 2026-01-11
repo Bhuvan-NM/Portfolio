@@ -1,21 +1,26 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
+@use "sass:color";
 
 .header-logo {
-  font-size: 2.5rem;
+  display: inline-flex;
+  align-items: baseline;
+  font-size: 4rem;
   font-weight: 700;
   text-decoration: none;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: $colour-secondary-txt;
-  align-items: center;
+}
 
-  span {
-    color: $colour-primary-accent;
-    font-size: 3rem;
-    margin-left: -1rem;
-    line-height: 0.2;
-  }
+.header-logo-dot {
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  margin-left: 0.3rem;
+  border-radius: 50%;
+  background-color: $colour-primary-accent;
+  transform: translateY(0.15rem) scale(0.7);
 }
 
 .header-btn {
@@ -34,7 +39,10 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: darken($colour-secondary-accent, 10%);
+      background-color: color.adjust(
+        $colour-secondary-accent,
+        $lightness: -10%
+      );
     }
   }
 }
@@ -50,14 +58,28 @@
 
   &--component {
     display: none;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 3rem;
+    color: $colour-secondary-txt;
   }
 
   @include respond(sm) {
     .navbar--component {
       display: inline-flex;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 3rem;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+      border-radius: 20px;
+      transition: transform 200ms ease, box-shadow 200ms ease,
+        background-color 200ms ease, color 200ms ease;
+    }
+
+    .navbar--component[aria-current="page"] {
+      background-color: $colour-primary-bg;
+      color: $colour-secondary-accent;
+      border: 1px solid $colour-border;
+      box-shadow: 0 0.8rem 1.8rem rgba($colour-secondary-accent, 0.25);
+      transform: translateY(-2px);
     }
   }
 }

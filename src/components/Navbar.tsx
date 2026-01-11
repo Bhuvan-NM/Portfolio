@@ -1,46 +1,55 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MenuOverlay from "./MenuOverlay";
 
 interface NavbarProps {
   classname?: string;
 }
 
+const items = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+
 const Navbar: React.FC<NavbarProps> = ({ classname = "" }) => {
+  const [activeHref, setActiveHref] = useState(items[0]?.href ?? "#");
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const syncActiveHref = () => {
+      const hash = window.location.hash;
+      const match = items.some((item) => item.href === hash);
+      setActiveHref(match ? hash : items[0]?.href ?? "#");
+    };
+
+    syncActiveHref();
+    window.addEventListener("hashchange", syncActiveHref);
+    return () => window.removeEventListener("hashchange", syncActiveHref);
+  }, []);
+
   return (
     <>
       <header className={classname}>
         <a
-          href=""
+          href="#home"
           className="header-logo"
         >
-          Bhuvan<span>.</span>
+          Bhuvan<span className="header-logo-dot" aria-hidden="true" />
         </a>
 
         <nav>
-          <a
-            href=""
-            className="navbar--component"
-          >
-            Home
-          </a>
-          <a
-            href=""
-            className="navbar--component"
-          >
-            About
-          </a>
-          <a
-            href=""
-            className="navbar--component"
-          >
-            Projects
-          </a>
-          <a
-            href=""
-            className="navbar--component"
-          >
-            Contact
-          </a>
+          {items.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="navbar--component"
+              aria-current={activeHref === item.href ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
         </nav>
         <button className="header-btn">Let's Talk</button>
       </header>
