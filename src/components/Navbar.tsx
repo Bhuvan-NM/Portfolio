@@ -3,6 +3,7 @@ import MenuOverlay from "./MenuOverlay";
 
 interface NavbarProps {
   classname?: string;
+  onOpenContact?: () => void;
 }
 
 const items = [
@@ -12,7 +13,7 @@ const items = [
   { label: "Contact", href: "#contact" },
 ];
 
-const Navbar: React.FC<NavbarProps> = ({ classname = "" }) => {
+const Navbar: React.FC<NavbarProps> = ({ classname = "", onOpenContact }) => {
   const [activeHref, setActiveHref] = useState(items[0]?.href ?? "#");
 
   useEffect(() => {
@@ -55,7 +56,13 @@ const Navbar: React.FC<NavbarProps> = ({ classname = "" }) => {
             </a>
           ))}
         </nav>
-        <button className="header-btn">Let's Talk</button>
+        <button
+          className="header-btn"
+          type="button"
+          onClick={onOpenContact}
+        >
+          Let's Talk
+        </button>
       </header>
       <MenuOverlay />
     </>

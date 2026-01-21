@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
+import ContactForm from "./components/ContactForm";
+import ContactModal from "./components/ContactModal";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -11,6 +13,7 @@ function App() {
       ? window.location.hash
       : "#home"
   );
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
     const onHashChange = () => {
@@ -23,6 +26,9 @@ function App() {
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
+  const openContact = () => setIsContactOpen(true);
+  const closeContact = () => setIsContactOpen(false);
+
   const renderPage = () => {
     switch (route) {
       case "#about":
@@ -33,14 +39,24 @@ function App() {
         return <Contact />;
       case "#home":
       default:
-        return <Home />;
+        return <Home onOpenContact={openContact} />;
     }
   };
 
   return (
     <>
-      <Navbar classname="navbar" />
+      <Navbar
+        classname="navbar"
+        onOpenContact={openContact}
+      />
       {renderPage()}
+      <ContactModal
+        open={isContactOpen}
+        title="Let's chat"
+        onClose={closeContact}
+      >
+        <ContactForm />
+      </ContactModal>
     </>
   );
 }

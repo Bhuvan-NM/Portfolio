@@ -12,7 +12,11 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 
 library.add(fas, far, fab);
 
-const Home = () => {
+type HomeProps = {
+  onOpenContact?: () => void;
+};
+
+const Home = ({ onOpenContact }: HomeProps) => {
   return (
     <div className="home-page">
       <div className="right">
@@ -44,7 +48,11 @@ const Home = () => {
               Projects
               <FontAwesomeIcon icon="code" />
             </button>
-            <button className="cta-2">
+            <button
+              className="cta-2"
+              type="button"
+              onClick={onOpenContact}
+            >
               Hire me
               <FontAwesomeIcon icon="arrow-up-right-from-square" />
             </button>
