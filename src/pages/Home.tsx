@@ -1,6 +1,7 @@
 import FacebookLogo from "../assets/FacebookLogo";
 import InstagramLogo from "../assets/InstagramLogo";
 import LinkedInLogo from "../assets/LinkedInLogo";
+import selfieImage from "../assets/selfie.jpg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -92,7 +93,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
       <div className="img-wrap">
         <img
           className="hero-img left"
-          src="src/assets/selfie.jpg"
+          src={selfieImage}
           alt="Selfie of Bhuvan Narasimhamurthy"
         />
       </div>
