@@ -48,6 +48,10 @@
 }
 
 .navbar {
+  background: rgba($colour-glass, 0.6);
+  backdrop-filter: blur(12px) brightness(130%);
+  box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
+
   padding: 1rem 2rem;
   display: flex;
   flex-wrap: wrap;
@@ -75,10 +79,7 @@
     }
 
     .navbar--component[aria-current="page"] {
-      background-color: $colour-primary-bg;
       color: $colour-secondary-accent;
-      border: 1px solid $colour-border;
-      box-shadow: 0 0.8rem 1.8rem rgba($colour-secondary-accent, 0.25);
       transform: translateY(-2px);
     }
   }

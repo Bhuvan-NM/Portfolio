@@ -9,11 +9,10 @@ import Portfolio from "./pages/Portfolio";
 import Background from "./assets/background";
 
 function App() {
-  const [route, setRoute] = useState(
-    typeof window !== "undefined" && window.location.hash
-      ? window.location.hash
-      : "#home"
-  );
+  const [route, setRoute] = useState(() => {
+    if (typeof window === "undefined") return "#home";
+    return window.location.hash || "#home";
+  });
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
@@ -23,7 +22,6 @@ function App() {
     };
 
     window.addEventListener("hashchange", onHashChange);
-    onHashChange();
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
 
