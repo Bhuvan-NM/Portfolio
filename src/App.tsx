@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
+import Background from "./assets/background";
 
 function App() {
   const [route, setRoute] = useState(
@@ -45,6 +46,7 @@ function App() {
 
   return (
     <>
+      <Background />
       <Navbar
         classname="navbar"
         onOpenContact={openContact}

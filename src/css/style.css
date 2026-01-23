@@ -75,6 +75,80 @@ body {
   line-height: 1.7;
 }
 
+.section {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 100%;
+  height: 100%;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.2);
+}
+
+.layer.layer-1 {
+  background: #222;
+  transform: skewX(-45deg) translateX(0);
+  z-index: 1;
+}
+
+.layer.layer-2 {
+  background: #ffffff;
+  transform: skewX(-45deg) translateX(-100px);
+  z-index: 3;
+}
+
+.layer.layer-3 {
+  background: #00a7e1;
+  transform: skewX(-45deg) translateX(-200px);
+  z-index: 5;
+}
+
+.layer.layer-4 {
+  background: #ffffff;
+  transform: skewX(-45deg) translateX(-300px);
+  z-index: 7;
+}
+
+.layer.layer-5 {
+  background: #00a7e1;
+  transform: skewX(45deg) translateX(0);
+  z-index: 2;
+}
+
+.layer.layer-6 {
+  background: #222;
+  transform: skewX(45deg) translateX(-100px);
+  z-index: 4;
+}
+
+.layer.layer-7 {
+  background: #ffffff;
+  transform: skewX(45deg) translateX(-200px);
+  z-index: 6;
+}
+
+.layer.layer-8 {
+  background: #ffffff;
+  transform: skewX(45deg) translateX(-300px);
+  z-index: 8;
+}
+
+.layer.layer-8 {
+  background: transparent;
+  transform: skewX(45deg) translateX(-300px);
+  z-index: 10;
+}
+
 @media (min-width: 640px) {
   .home-page {
     display: grid;
