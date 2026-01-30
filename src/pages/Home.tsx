@@ -20,15 +20,15 @@ type HomeProps = {
 
 const Home = ({ onOpenContact }: HomeProps) => {
   return (
-    <div className="home-page">
-      <div className="right">
-        <div className="home-page-content ">
-          <h3 className="home-page-content-h3">Hi, I'm Bhuvan NM!</h3>
-          <h1 className="home-page-content-h1">
+    <div className="homepage">
+      <div className="homepage-content-wrapper">
+        <div className="homepage-content ">
+          <h3 className="homepage-content-h3">Hi, I'm Bhuvan NM!</h3>
+          <h1 className="homepage-content-h1">
             Web <span>Designer</span>
           </h1>
 
-          <p className="home-page-content-p">
+          <p className="homepage-content-p">
             I’m a web designer who builds clear, responsive websites with a
             strong focus on layout, usability, and visual balance. I take a
             thoughtful approach to turning ideas into well-structured

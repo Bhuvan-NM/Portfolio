@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import selfieImage from "../assets/selfie.jpg";
 import { faHouse } from "@fortawesome/free-regular-svg-icons";
 import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
@@ -22,6 +22,8 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
   onOpenProfile,
 }) => {
   const [activeHref, setActiveHref] = useState(items[0]?.href ?? "#");
+  const navRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef(new Map<string, HTMLAnchorElement>());
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -37,16 +39,50 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
     return () => window.removeEventListener("hashchange", syncActiveHref);
   }, []);
 
+  useLayoutEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+
+    const updateIndicator = () => {
+      const activeItem =
+        itemRefs.current.get(activeHref) ??
+        itemRefs.current.get(items[0]?.href ?? "#");
+      if (!activeItem) return;
+
+      const navRect = nav.getBoundingClientRect();
+      const itemRect = activeItem.getBoundingClientRect();
+      const offsetX = itemRect.left - navRect.left;
+
+      nav.style.setProperty("--indicator-x", `${offsetX}px`);
+      nav.style.setProperty("--indicator-width", `${itemRect.width}px`);
+    };
+
+    updateIndicator();
+    window.addEventListener("resize", updateIndicator);
+    return () => window.removeEventListener("resize", updateIndicator);
+  }, [activeHref]);
+
   return (
     <>
       <div className={classname}>
-        <nav className="mobile-nav-component-holder">
+        <nav
+          ref={navRef}
+          className="mobile-nav-component-holder"
+        >
+          <span className="mobile-nav-indicator" />
           {items.map((item) => (
             <a
               key={item.href}
               href={item.href}
               className="mobilenavbar--component"
               aria-current={activeHref === item.href ? "page" : undefined}
+              ref={(node) => {
+                if (!node) {
+                  itemRefs.current.delete(item.href);
+                  return;
+                }
+                itemRefs.current.set(item.href, node);
+              }}
             >
               <FontAwesomeIcon
                 className="mobile-nav-icon"

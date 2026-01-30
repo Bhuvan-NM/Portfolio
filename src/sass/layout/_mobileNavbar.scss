@@ -5,15 +5,16 @@
 .mobile-navbar {
   position: fixed;
   bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  --mobile-nav-height: 6.4rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.6rem;
+  gap: 2rem;
   width: min(92vw, 42rem);
-  margin: 0;
+  margin: 0 auto;
 }
 
 @include respond(sm) {
@@ -23,14 +24,13 @@
 }
 
 .img-wrap-mobile-only {
-  width: 75px;
-  aspect-ratio: 1 / 1;
+  width: var(--mobile-nav-height);
+  height: var(--mobile-nav-height);
   border-radius: 50%;
   overflow: hidden;
-  margin: 1.5rem auto 0;
+  margin: 0;
   display: grid;
   place-items: center;
-  transform: translateY(-2rem);
 }
 
 .hero-img-mobile-only {
@@ -41,32 +41,64 @@
 }
 
 .mobile-nav-component-holder {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1.6rem;
-  padding: 0.6rem 1.2rem;
+  height: var(--mobile-nav-height);
+  padding: 0 1.2rem;
   border-radius: 999px;
-  background: rgba($colour-glass, 0.6);
-  backdrop-filter: blur(12px) brightness(130%);
+  background: transparent;
+  overflow: hidden;
   box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .mobilenavbar--component {
+  width: 7.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
+  padding: 1rem 0.6rem;
   text-decoration: none;
-  color: inherit;
+  color: $colour-secondary-txt;
+  position: relative;
+  z-index: 1;
+  border-radius: 1.2rem;
+  -webkit-tap-highlight-color: transparent;
 
-  &:hover {
-    color: $colour-primary-accent;
+  &:focus {
+    outline: none;
   }
 
-  &[aria-current="page"] {
-    color: $colour-primary-accent;
+  &:focus-visible {
+    outline: 2px solid rgba($colour-primary-accent, 0.5);
+    outline-offset: 4px;
   }
+
+  &:active {
+    background-color: transparent;
+  }
+}
+
+.mobile-nav-indicator {
+  position: absolute;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  left: 0;
+  width: var(--indicator-width, 0px);
+  transform: translateX(var(--indicator-x, 0px));
+  border-radius: 999px;
+  background-color: rgba($colour-primary-accent, 0.2);
+  backdrop-filter: blur(12px) brightness(130%);
+  -webkit-backdrop-filter: blur(12px) brightness(130%);
+  transition: transform 240ms ease, width 240ms ease;
+  z-index: 0;
+}
+
+.mobilenavbar--component[aria-current="page"] {
+  color: $colour-primary-accent;
 }
 
 .mobile-nav-icon {
