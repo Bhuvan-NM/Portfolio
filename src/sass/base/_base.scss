@@ -9,7 +9,12 @@
   border: none;
 }
 
+#root {
+  min-height: 100dvh;
+}
+
 html {
+  background: transparent;
   // this defines what 1rem is (mobile-first)
   font-size: 50%; //1rem = 8px, 8/16 = 50%
 
@@ -29,6 +34,8 @@ html {
 body {
   box-sizing: border-box;
   padding: 0;
+  background: transparent;
+  min-height: 100dvh;
 
   @include mixins.respond(lg) {
     padding: 0 2rem;
