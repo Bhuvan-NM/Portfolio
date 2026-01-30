@@ -70,7 +70,7 @@ const ContactForm = () => {
       onSubmit={handleSubmit}
     >
       <p className="contactIntro">
-        Tell me a bit about your project and I will reply soon.
+        Tell me a bit about the opportunity and I will reply soon.
       </p>
 
       <div className="contactField">

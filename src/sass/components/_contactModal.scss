@@ -10,6 +10,7 @@
   padding: 2rem;
   background: rgba($colour-tertiary-accent, 0.55);
   backdrop-filter: blur(3px);
+  animation: modalBackdropFade 240ms ease-out;
 }
 
 .modal {
@@ -22,6 +23,7 @@
   border: 1px solid $colour-border;
   border-radius: 1.6rem;
   box-shadow: 0 2.4rem 6rem rgba($colour-tertiary-accent, 0.25);
+  animation: modalRise 320ms ease-out;
 }
 
 .modalHeader {
@@ -160,4 +162,31 @@
 
 .contactStatus--success {
   color: #047857;
+}
+
+@keyframes modalBackdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalRise {
+  from {
+    opacity: 0;
+    transform: translateY(1.4rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modalBackdrop,
+  .modal {
+    animation: none;
+  }
 }

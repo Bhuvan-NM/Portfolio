@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/ContactForm";
 import ContactModal from "./components/ContactModal";
-import About from "./pages/About";
+import History from "./pages/History";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
@@ -30,8 +30,8 @@ function App() {
 
   const renderPage = () => {
     switch (route) {
-      case "#about":
-        return <About />;
+      case "#history":
+        return <History />;
       case "#portfolio":
         return <Portfolio />;
       case "#contact":

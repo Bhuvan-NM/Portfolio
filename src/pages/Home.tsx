@@ -2,6 +2,7 @@ import FacebookLogo from "../assets/FacebookLogo";
 import InstagramLogo from "../assets/InstagramLogo";
 import LinkedInLogo from "../assets/LinkedInLogo";
 import selfieImage from "../assets/selfie.jpg";
+import MobileNavbar from "../components/MobileNavbar";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -60,7 +61,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
           </div>
         </div>
 
-        <div className="social-section ">
+        <div className="social-section desktop-only ">
           <div
             className="facebook"
             onClick={() => {
@@ -90,13 +91,15 @@ const Home = ({ onOpenContact }: HomeProps) => {
         </div>
       </div>
 
-      <div className="img-wrap">
+      <div className="img-wrap desktop-only">
         <img
           className="hero-img left"
           src={selfieImage}
           alt="Selfie of Bhuvan Narasimhamurthy"
         />
       </div>
+
+      <MobileNavbar classname="mobile-navbar mobile-only" />
     </div>
   );
 };

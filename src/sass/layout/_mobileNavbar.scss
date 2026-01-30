@@ -1,0 +1,59 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+@use "sass:color";
+
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+.mobile-navbar {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: min(92vw, 42rem);
+  margin: 0;
+}
+
+.img-wrap-mobile-only {
+  width: 75px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 1.5rem auto 0;
+  display: grid;
+  place-items: center;
+  transform: translateY(-2rem);
+}
+
+.hero-img-mobile-only {
+  width: 120%;
+  height: 120%;
+  border-radius: 0;
+  transform: translateX(-20%) translateY(5%);
+}
+
+.mobile-nav-component-holder {
+  background: rgba($colour-glass, 0.6);
+  backdrop-filter: blur(12px) brightness(130%);
+  box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mobilenavbar--component {
+  &:hover {
+    color: $colour-primary-accent;
+  }
+
+  &[aria-current="page"] {
+    color: $colour-primary-accent;
+  }
+}

@@ -2,7 +2,23 @@
 @use "../abstracts/variables" as *;
 @use "sass:color";
 
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
 @include respond(sm) {
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+
   .home-page {
     display: grid;
     margin-top: 10rem;
@@ -155,6 +171,10 @@
   width: 100%;
   max-width: 420px;
   height: auto;
+}
+
+.social-section {
+  display: none;
 }
 
 .home-page-content > * {

@@ -8,8 +8,7 @@ interface NavbarProps {
 
 const items = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
+  { label: "History", href: "#history" },
   { label: "Contact", href: "#contact" },
 ];
 

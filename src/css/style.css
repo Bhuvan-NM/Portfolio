@@ -149,7 +149,21 @@ body {
   z-index: 10;
 }
 
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
 @media (min-width: 640px) {
+  .desktop-only {
+    display: block;
+  }
+  .mobile-only {
+    display: none;
+  }
   .home-page {
     display: grid;
     margin-top: 10rem;
@@ -282,6 +296,10 @@ body {
   height: auto;
 }
 
+.social-section {
+  display: none;
+}
+
 .home-page-content > * {
   opacity: 0;
   transform: translateY(2.4rem);
@@ -407,6 +425,58 @@ body {
     color: #003459;
     transform: translateY(-2px);
   }
+}
+
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+.mobile-navbar {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: min(92vw, 42rem);
+  margin: 0;
+}
+
+.img-wrap-mobile-only {
+  width: 75px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 1.5rem auto 0;
+  display: grid;
+  place-items: center;
+  transform: translateY(-2rem);
+}
+
+.hero-img-mobile-only {
+  width: 120%;
+  height: 120%;
+  border-radius: 0;
+  transform: translateX(-20%) translateY(5%);
+}
+
+.mobile-nav-component-holder {
+  background: rgba(213, 213, 213, 0.6);
+  backdrop-filter: blur(12px) brightness(130%);
+  box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+
+.mobilenavbar--component:hover {
+  color: #00a7e1;
+}
+.mobilenavbar--component[aria-current=page] {
+  color: #00a7e1;
 }
 
 /* HTML: <div class="loader"></div> */
@@ -609,6 +679,7 @@ body {
   padding: 2rem;
   background: rgba(0, 23, 31, 0.55);
   backdrop-filter: blur(3px);
+  animation: modalBackdropFade 240ms ease-out;
 }
 
 .modal {
@@ -621,6 +692,7 @@ body {
   border: 1px solid #e5e7eb;
   border-radius: 1.6rem;
   box-shadow: 0 2.4rem 6rem rgba(0, 23, 31, 0.25);
+  animation: modalRise 320ms ease-out;
 }
 
 .modalHeader {
@@ -755,6 +827,31 @@ body {
 
 .contactStatus--success {
   color: #047857;
+}
+
+@keyframes modalBackdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes modalRise {
+  from {
+    opacity: 0;
+    transform: translateY(1.4rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .modalBackdrop,
+  .modal {
+    animation: none;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
