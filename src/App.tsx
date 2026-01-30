@@ -7,7 +7,7 @@ import History from "./pages/History";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
-import Background from "./assets/background";
+import Background from "./assets/Background";
 
 function App() {
   const [route, setRoute] = useState(() => {
