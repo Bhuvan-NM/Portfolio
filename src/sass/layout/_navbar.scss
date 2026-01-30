@@ -15,28 +15,29 @@
 
 .header-logo-dot {
   display: inline-block;
-  width: 0.15rem;
-  height: 0.15rem;
-  margin-left: 0.3rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.6rem;
   border-radius: 50%;
   background-color: $colour-primary-accent;
-  transform: translateY(0.15rem) scale(0.7);
+  transform: translateY(0.16rem);
 }
 
 .header-btn {
-  display: none;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: $colour-primary-accent;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 
   @include respond(sm) {
-    display: inline-block;
     padding: 1rem 2.6rem;
-    background-color: $colour-primary-accent;
-    color: white;
     font-size: 1.6rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
 
     &:hover {
       background-color: color.adjust(
@@ -69,6 +70,8 @@
   }
 
   @include respond(sm) {
+    padding: 2rem 3rem;
+
     .navbar--component {
       display: inline-flex;
       align-items: center;

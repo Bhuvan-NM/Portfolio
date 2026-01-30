@@ -3,7 +3,6 @@
 *::after,
 *::before {
   margin: 0;
-  padding: 0.5rem;
   box-sizing: inherit;
   outline: none;
   border: none;
@@ -198,6 +197,7 @@ body {
   .home-page-content {
     text-align: left;
     align-self: center;
+    padding: 1rem;
   }
   .home-page-content-h3 {
     font-size: 3rem;
@@ -306,7 +306,7 @@ body {
 }
 .hero-img {
   width: 100%;
-  max-width: 420px;
+  max-width: 40rem;
   height: auto;
 }
 
@@ -380,29 +380,30 @@ body {
 
 .header-logo-dot {
   display: inline-block;
-  width: 0.15rem;
-  height: 0.15rem;
-  margin-left: 0.3rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  margin-left: 0.6rem;
   border-radius: 50%;
   background-color: #00a7e1;
-  transform: translateY(0.15rem) scale(0.7);
+  transform: translateY(0.16rem);
 }
 
 .header-btn {
-  display: none;
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background-color: #00a7e1;
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 @media (min-width: 640px) {
   .header-btn {
-    display: inline-block;
     padding: 1rem 2.6rem;
-    background-color: #00a7e1;
-    color: white;
     font-size: 1.6rem;
-    font-weight: 600;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
   }
   .header-btn:hover {
     background-color: rgb(0, 22.202247191, 38);
@@ -428,6 +429,9 @@ body {
   color: #9ca3af;
 }
 @media (min-width: 640px) {
+  .navbar {
+    padding: 2rem 3rem;
+  }
   .navbar .navbar--component {
     display: inline-flex;
     align-items: center;
