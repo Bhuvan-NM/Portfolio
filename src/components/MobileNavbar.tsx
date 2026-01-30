@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
-import MenuOverlay from "./MenuOverlay";
 import selfieImage from "../assets/selfie.jpg";
 import { faHouse } from "@fortawesome/free-regular-svg-icons";
 import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
+import type { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 interface MobileNavbarProps {
   classname?: string;
   onOpenProfile?: () => void;
 }
 
-const items = [
-  { label: "Home", href: "#home" },
-  { label: "History", href: "#History" },
-  { label: "Contact", href: "#contact" },
+const items: { label: string; href: string; icon: IconProp }[] = [
+  { label: "Home", href: "#home", icon: faHouse },
+  { label: "History", href: "#history", icon: faClockRotateLeft },
+  { label: "Contact", href: "#contact", icon: faAddressCard },
 ];
 
 const MobileNavbar: React.FC<MobileNavbarProps> = ({
@@ -48,14 +48,14 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
               className="mobilenavbar--component"
               aria-current={activeHref === item.href ? "page" : undefined}
             >
-              {item.label}
+              <FontAwesomeIcon
+                className="mobile-nav-icon"
+                icon={item.icon}
+              />
+              <span className="mobile-nav-label">{item.label}</span>
             </a>
           ))}
         </nav>
-
-        <FontAwesomeIcon icon={faHouse} />
-        <FontAwesomeIcon icon={faClockRotateLeft} />
-        <FontAwesomeIcon icon={faAddressCard} />
 
         <div className="img-wrap-mobile-only">
           <img
@@ -66,7 +66,6 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
           />
         </div>
       </div>
-      <MenuOverlay />
     </>
   );
 };

@@ -40,6 +40,24 @@ body {
   }
 }
 
+.desktop-only {
+  display: none;
+}
+
+.mobile-only {
+  display: block;
+}
+
+@include mixins.respond(sm) {
+  .desktop-only {
+    display: block;
+  }
+
+  .mobile-only {
+    display: none;
+  }
+}
+
 #hero {
   height: 100vh;
   overflow: hidden;

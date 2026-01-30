@@ -2,14 +2,6 @@
 @use "../abstracts/mixins" as *;
 @use "sass:color";
 
-.desktop-only {
-  display: none;
-}
-
-.mobile-only {
-  display: block;
-}
-
 .mobile-navbar {
   position: fixed;
   bottom: 2rem;
@@ -22,6 +14,12 @@
   gap: 0.6rem;
   width: min(92vw, 42rem);
   margin: 0;
+}
+
+@include respond(sm) {
+  .mobile-navbar {
+    display: none;
+  }
 }
 
 .img-wrap-mobile-only {
@@ -43,12 +41,25 @@
 }
 
 .mobile-nav-component-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.6rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
   background: rgba($colour-glass, 0.6);
   backdrop-filter: blur(12px) brightness(130%);
   box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .mobilenavbar--component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+  color: inherit;
+
   &:hover {
     color: $colour-primary-accent;
   }
@@ -56,4 +67,14 @@
   &[aria-current="page"] {
     color: $colour-primary-accent;
   }
+}
+
+.mobile-nav-icon {
+  font-size: 1.8rem;
+}
+
+.mobile-nav-label {
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

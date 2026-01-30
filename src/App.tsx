@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/ContactForm";
 import ContactModal from "./components/ContactModal";
+import MobileNavbar from "./components/MobileNavbar";
 import History from "./pages/History";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -49,6 +50,7 @@ function App() {
         classname="navbar"
         onOpenContact={openContact}
       />
+      <MobileNavbar classname="mobile-navbar mobile-only" />
       {renderPage()}
       <ContactModal
         open={isContactOpen}

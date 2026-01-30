@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import MenuOverlay from "./MenuOverlay";
 
 interface NavbarProps {
   classname?: string;
@@ -63,7 +62,6 @@ const Navbar: React.FC<NavbarProps> = ({ classname = "", onOpenContact }) => {
           Let's Talk
         </button>
       </header>
-      <MenuOverlay />
     </>
   );
 };
