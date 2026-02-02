@@ -26,7 +26,7 @@
   --colour-primary-accent: #d2292d;
   --colour-secondary-accent: #0d3580;
   --colour-tertiary-accent: #00171f;
-  --colour-border: #e5e7eb;
+  --colour-border: #3f3f3f;
 }
 
 *,
@@ -647,7 +647,7 @@ body {
   outline: none;
 }
 .mobilenavbar--component:focus-visible {
-  outline: 2px solid rgba(var(--colour-primary-accent), 0.5);
+  outline: 2px solid rgb(var(--colour-primary-accent-rgb)/0.5);
   outline-offset: 4px;
 }
 .mobilenavbar--component:active {
@@ -662,7 +662,7 @@ body {
   width: var(--indicator-width, 7.2rem);
   transform: translate3d(var(--indicator-x, 0px), 0, 0);
   border-radius: 999px;
-  background-color: rgba(var(--colour-primary-accent), 0.22);
+  background-color: rgb(var(--colour-primary-accent-rgb)/0.22);
   backdrop-filter: blur(12px) brightness(130%);
   -webkit-backdrop-filter: blur(12px) brightness(130%);
   will-change: transform;
