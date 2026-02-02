@@ -30,12 +30,12 @@
   padding: 1rem;
 
   &-h3 {
-    font-size: 3rem;
+    font-size: 2.4rem;
     color: $colour-primary-txt;
   }
 
   &-h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 800;
     letter-spacing: 5px;
     margin: -15px 0;
@@ -48,7 +48,7 @@
   }
 
   &-p {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: $colour-secondary-txt;
     line-height: 1.8;
     margin-top: 20px;
@@ -56,22 +56,12 @@
 }
 
 .cta-Section {
-  display: flex;
-  align-items: center;
-  margin-top: 2rem;
-  gap: 60px;
+  flex-direction: column;
+  gap: 20px;
 
   & button {
-    font-size: 1.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    height: 5rem;
-    width: 15rem;
-    cursor: pointer;
-    transition: 0.3s;
-    border-radius: 5px;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    font-size: 1.6rem;
   }
 }
 
@@ -95,11 +85,57 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
 
   &:hover {
     background-color: $colour-secondary-accent;
     color: white;
     border: none;
+  }
+}
+
+@include respond(xs) {
+  .homepage {
+    margin-top: 8rem;
+  }
+
+  .homepage-content {
+    &-h3 {
+      font-size: 3rem;
+    }
+
+    &-h1 {
+      font-size: 5rem;
+    }
+
+    &-p {
+      font-size: 1.8rem;
+    }
+  }
+
+  .cta-Section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 60px;
+
+    & button {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      height: 5rem;
+      width: 15rem;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 5px;
+      box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .cta-2 {
+    margin-top: 0;
   }
 }
 
@@ -199,6 +235,10 @@
     max-width: 100%;
     height: 80%;
     transform: translateX(-15rem) scale(1.6);
+  }
+
+  .homepage-content-wrapper {
+    width: 95%;
   }
 }
 

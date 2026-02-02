@@ -31,3 +31,13 @@ $colour-primary-dark-accent: #60a5fa;
 $colour-secondary-dark-accent: #a78bfa;
 $colour-tertiary-dark-accent: #2dd4bf;
 $colour-dark-border: #334155;
+
+// Breakpoints
+$breakpoints: (
+  xs: 400px,
+  sm: 640px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1280px,
+  2xl: 1536px,
+);
