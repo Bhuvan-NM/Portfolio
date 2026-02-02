@@ -8,12 +8,17 @@ import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
 import Background from "./assets/Background";
+import ThemeToggle from "./components/ThemeToggle";
+import { useTheme } from "./hooks/useTheme";
 
 function App() {
   const [route, setRoute] = useState(() => {
     if (typeof window === "undefined") return "#home";
     return window.location.hash || "#home";
   });
+
+  const { theme, toggleTheme } = useTheme();
+
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
@@ -45,6 +50,10 @@ function App() {
 
   return (
     <>
+      <ThemeToggle
+        isDark={theme === "dark"}
+        onToggle={toggleTheme}
+      />
       <Background />
       <Navbar
         classname="navbar"

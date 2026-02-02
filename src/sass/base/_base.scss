@@ -13,6 +13,13 @@
   min-height: 100dvh;
 }
 
+#root,
+#root * {
+  transition: background-color 240ms ease, color 240ms ease,
+    border-color 240ms ease, box-shadow 240ms ease, fill 240ms ease,
+    stroke 240ms ease;
+}
+
 html {
   background: transparent;
   // this defines what 1rem is (mobile-first)
@@ -87,4 +94,11 @@ body {
   align-items: center;
   justify-content: center;
   padding: 22rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #root,
+  #root * {
+    transition: none;
+  }
 }
