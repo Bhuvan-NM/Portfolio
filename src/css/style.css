@@ -770,6 +770,15 @@ body {
   color: var(--colour-primary-accent);
 }
 
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-only {
+    display: inline-flex;
+  }
+}
 .menuBtn {
   position: fixed;
   z-index: 1001;

@@ -51,6 +51,7 @@ function App() {
   return (
     <>
       <ThemeToggle
+        classname="theme-toggle desktop-only"
         isDark={theme === "dark"}
         onToggle={toggleTheme}
       />

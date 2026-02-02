@@ -3,15 +3,16 @@ import { faSun } from "@fortawesome/free-regular-svg-icons";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
+  classname?: string;
   isDark: boolean;
   onToggle: () => void;
 };
 
-export default function ThemeToggle({ isDark, onToggle }: Props) {
+export default function ThemeToggle({ isDark, onToggle, classname }: Props) {
   return (
     <button
       type="button"
-      className={`theme-toggle ${isDark ? "is-on" : ""}`}
+      className={`theme-toggle ${classname} ${isDark ? "is-on" : ""}`}
       onClick={onToggle}
       role="switch"
       aria-checked={isDark}
