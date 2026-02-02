@@ -12,7 +12,7 @@
   height: 48px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: $colour-primary-accent;
+  background: var(--colour-primary-accent);
   color: #fff;
   cursor: pointer;
   font-size: 18px;
@@ -24,7 +24,7 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba($colour-secondary-bg, 0.95);
+  background: rgba(var(--colour-secondary-bg), 0.95);
 
   height: 100dvh; /* mobile-safe viewport */
   opacity: 0;
@@ -85,13 +85,13 @@
 }
 
 .menuLink:focus-visible {
-  outline: 2px solid rgba($colour-secondary-accent, 0.6);
+  outline: 2px solid rgba(var(--colour-secondary-accent), 0.6);
   outline-offset: 6px;
   border-radius: 12px;
 }
 
 .menuLink[aria-current="page"] {
-  outline: 2px solid rgba($colour-secondary-accent, 0.85);
+  outline: 2px solid rgba(var(--colour-secondary-accent), 0.85);
   outline-offset: 6px;
   border-radius: 12px;
 }

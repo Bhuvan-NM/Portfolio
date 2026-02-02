@@ -8,7 +8,7 @@
   display: grid;
   place-items: center;
   padding: 2rem;
-  background: rgba($colour-tertiary-accent, 0.55);
+  background: rgba(var(--colour-tertiary-accent), 0.55);
   backdrop-filter: blur(3px);
   animation: modalBackdropFade 240ms ease-out;
 }
@@ -18,11 +18,11 @@
   max-height: min(85dvh, 72rem);
   overflow: auto;
   padding: 0;
-  background: $colour-primary-bg;
-  color: $colour-primary-txt;
-  border: 1px solid $colour-border;
+  background: var(--colour-primary-bg);
+  color: var(--colour-primary-txt);
+  border: 1px solid var(--colour-border);
   border-radius: 1.6rem;
-  box-shadow: 0 2.4rem 6rem rgba($colour-tertiary-accent, 0.25);
+  box-shadow: 0 2.4rem 6rem rgba(var(--colour-tertiary-accent), 0.25);
   animation: modalRise 320ms ease-out;
 }
 
@@ -32,7 +32,7 @@
   justify-content: space-between;
   gap: 1rem;
   padding: 2rem 2.4rem 1.4rem;
-  border-bottom: 1px solid $colour-border;
+  border-bottom: 1px solid var(--colour-border);
 }
 
 .modalTitle {
@@ -41,7 +41,7 @@
   font-size: 2.2rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: $colour-secondary-txt;
+  color: var(--colour-secondary-txt);
 }
 
 .modalClose {
@@ -50,18 +50,18 @@
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 999px;
-  border: 1px solid $colour-border;
+  border: 1px solid var(--colour-border);
   background: transparent;
-  color: $colour-secondary-txt;
+  color: var(--colour-secondary-txt);
   font-size: 2rem;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease,
     border-color 0.2s ease;
 
   &:hover {
-    background-color: color.adjust($colour-border, $lightness: 6%);
-    color: $colour-secondary-accent;
-    border-color: color.adjust($colour-border, $lightness: 12%);
+    background-color: color-mix(in srgb, var(--colour-border) 94%, white);
+    color: var(--colour-secondary-accent);
+    border-color: color-mix(in srgb, var(--colour-border) 88%, white);
   }
 }
 
@@ -73,7 +73,7 @@
   margin: 0 0 1.6rem;
   padding: 0;
   font-size: 1.6rem;
-  color: $colour-secondary-txt;
+  color: var(--colour-secondary-txt);
   line-height: 1.6;
 }
 
@@ -93,7 +93,7 @@
   font-size: 1.2rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: $colour-accent-txt;
+  color: var(--colour-accent-txt);
 }
 
 .contactInput,
@@ -101,16 +101,16 @@
   width: 100%;
   padding: 1.1rem 1.4rem;
   border-radius: 1rem;
-  border: 1px solid $colour-border;
-  background: color.adjust($colour-primary-bg, $lightness: -2%);
-  color: $colour-primary-txt;
+  border: 1px solid var(--colour-border);
+  background: color-mix(in srgb, var(--colour-primary-bg) 98%, black);
+  color: var(--colour-primary-txt);
   font-size: 1.6rem;
   font-family: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
   &:focus {
-    border-color: $colour-primary-accent;
-    box-shadow: 0 0 0 0.3rem rgba($colour-primary-accent, 0.2);
+    border-color: var(--colour-primary-accent);
+    box-shadow: 0 0 0 0.3rem rgba(var(--colour-primary-accent), 0.2);
   }
 }
 
@@ -130,8 +130,8 @@
 .contactSubmit {
   padding: 1.1rem 2.6rem;
   border-radius: 0.9rem;
-  background: $colour-primary-accent;
-  color: $colour-primary-bg;
+  background: var(--colour-primary-accent);
+  color: var(--colour-primary-bg);
   font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -140,7 +140,11 @@
   transition: background-color 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: color.adjust($colour-primary-accent, $lightness: -8%);
+    background-color: color-mix(
+      in srgb,
+      var(--colour-primary-accent) 92%,
+      black
+    );
     transform: translateY(-1px);
   }
 
@@ -153,7 +157,7 @@
 
 .contactStatus {
   font-size: 1.4rem;
-  color: $colour-secondary-txt;
+  color: var(--colour-secondary-txt);
 }
 
 .contactStatus--error {

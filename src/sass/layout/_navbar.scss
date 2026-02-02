@@ -10,7 +10,7 @@
   text-decoration: none;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: $colour-secondary-txt;
+  color: var(--colour-secondary-txt);
 }
 
 .header-logo-dot {
@@ -19,14 +19,14 @@
   height: 0.75rem;
   margin-left: 0.6rem;
   border-radius: 50%;
-  background-color: $colour-primary-accent;
+  background-color: var(--colour-primary-accent);
   transform: translateY(0.16rem);
 }
 
 .header-btn {
   display: inline-block;
   padding: 0.8rem 2rem;
-  background-color: $colour-primary-accent;
+  background-color: var(--colour-primary-accent);
   color: white;
   font-size: 1.4rem;
   font-weight: 600;
@@ -40,16 +40,17 @@
     font-size: 1.6rem;
 
     &:hover {
-      background-color: color.adjust(
-        $colour-secondary-accent,
-        $lightness: -10%
+      background-color: color-mix(
+        in srgb,
+        var(--colour-secondary-accent) 90%,
+        black
       );
     }
   }
 }
 
 .navbar {
-  background: rgba($colour-glass, 0.6);
+  background: rgba(var(--colour-glass), 0.6);
   backdrop-filter: blur(12px) brightness(130%);
   box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
 
@@ -66,7 +67,7 @@
     text-decoration: none;
     font-weight: 600;
     font-size: 3rem;
-    color: $colour-accent-txt;
+    color: var(--colour-accent-txt);
   }
 
   @include respond(sm) {
@@ -82,7 +83,7 @@
     }
 
     .navbar--component[aria-current="page"] {
-      color: $colour-secondary-accent;
+      color: var(--colour-secondary-accent);
       transform: translateY(-2px);
     }
   }

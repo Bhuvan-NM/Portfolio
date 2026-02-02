@@ -9,7 +9,7 @@
   width: 100%;
   min-height: 100dvh;
   overflow: hidden;
-  background: $colour-primary-bg;
+  background: var(--colour-primary-bg);
   z-index: -1;
   pointer-events: none;
 }
@@ -24,48 +24,48 @@
 }
 
 .layer.layer-1 {
-  background: $colour-layer-bg;
+  background: var(--colour-layer-bg);
   transform: skewX(-45deg) translateX(0);
   z-index: 1;
 }
 
 .layer.layer-2 {
-  background: $colour-primary-bg;
+  background: var(--colour-primary-bg);
   transform: skewX(-45deg) translateX(-100px);
   z-index: 3;
 }
 
 .layer.layer-3 {
-  background: $colour-layer-secondary-bg;
+  background: var(--colour-layer-secondary-bg);
   transform: skewX(-45deg) translateX(-200px);
   z-index: 5;
 }
 
 .layer.layer-4 {
-  background: $colour-primary-bg;
+  background: var(--colour-primary-bg);
   transform: skewX(-45deg) translateX(-300px);
   z-index: 7;
 }
 
 .layer.layer-5 {
-  background: $colour-layer-secondary-bg;
+  background: var(--colour-layer-secondary-bg);
   transform: skewX(45deg) translateX(0);
   z-index: 2;
 }
 
 .layer.layer-6 {
-  background: $colour-layer-bg;
+  background: var(--colour-layer-bg);
   transform: skewX(45deg) translateX(-100px);
   z-index: 4;
 }
 .layer.layer-7 {
-  background: $colour-primary-bg;
+  background: var(--colour-primary-bg);
   transform: skewX(45deg) translateX(-200px);
   z-index: 6;
 }
 
 .layer.layer-8 {
-  background: $colour-primary-bg;
+  background: var(--colour-primary-bg);
   transform: skewX(45deg) translateX(-300px);
   z-index: 8;
 }

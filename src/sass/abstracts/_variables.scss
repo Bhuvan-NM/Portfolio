@@ -1,36 +1,42 @@
-// Light Mode for background colours
-$colour-primary-bg: #ffffff;
-$colour-secondary-bg: #b3b4b5;
-$colour-layer-bg: #222;
-$colour-layer-secondary-bg: #00a7e1;
+:root {
+  // Light Mode for background colours
+  --colour-primary-bg: #ffffff;
+  --colour-secondary-bg: #b3b4b5;
+  --colour-layer-bg: #222;
+  --colour-layer-secondary-bg: #00a7e1;
+  --colour-glass-light: #d5d5d5;
 
-$colour-glass: #d5d5d5;
+  // Light Mode text colours
+  --colour-primary-txt: #111827;
+  --colour-secondary-txt: #4b5563;
+  --colour-accent-txt: #9ca3af;
 
-// Light Mode text colours
-$colour-primary-txt: #111827;
-$colour-secondary-txt: #4b5563;
-$colour-accent-txt: #9ca3af;
+  // Light Mode colours
+  --colour-primary-accent: #00a7e1;
+  --colour-secondary-accent: #003459;
+  --colour-tertiary-accent: #00171f;
+  --colour-border: #e5e7eb;
+}
 
-// Light Mode colours
-$colour-primary-accent: #00a7e1;
-$colour-secondary-accent: #003459;
-$colour-tertiary-accent: #00171f;
-$colour-border: #e5e7eb;
+.theme-dark {
+  // Light Mode for background colours
+  --colour-primary-bg: #ffffff;
+  --colour-secondary-bg: #b3b4b5;
+  --colour-layer-bg: #222;
+  --colour-layer-secondary-bg: #00a7e1;
+  --colour-glass-light: #d5d5d5;
 
-// Dark Mode colours
-$colour-primary-dark-bg: #0f172a;
-$colour-secondary-dark-bg: #1e293b;
+  // Light Mode text colours
+  --colour-primary-txt: #111827;
+  --colour-secondary-txt: #4b5563;
+  --colour-accent-txt: #9ca3af;
 
-// Dark Mode text colours
-$colour-primary-dark-txt: #e5e7eb;
-$colour-secondary-dark-txt: #cbd5e1;
-$colour-accent-dark-txt: #94a3b8;
-
-// Dark Mode Accent colours
-$colour-primary-dark-accent: #60a5fa;
-$colour-secondary-dark-accent: #a78bfa;
-$colour-tertiary-dark-accent: #2dd4bf;
-$colour-dark-border: #334155;
+  // Light Mode colours
+  --colour-primary-accent: #00a7e1;
+  --colour-secondary-accent: #003459;
+  --colour-tertiary-accent: #00171f;
+  --colour-border: #e5e7eb;
+}
 
 // Breakpoints
 $breakpoints: (
