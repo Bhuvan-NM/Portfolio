@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import ContactForm from "./components/ContactForm";
 import ContactModal from "./components/ContactModal";
 import MobileNavbar from "./components/MobileNavbar";
+import MobileProfileModal from "./components/MobileProfileModal";
 import History from "./pages/History";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
@@ -20,6 +21,7 @@ function App() {
   const { theme, toggleTheme } = useTheme();
 
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   useEffect(() => {
     const onHashChange = () => {
@@ -33,6 +35,8 @@ function App() {
 
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
+  const openProfile = () => setIsProfileOpen(true);
+  const closeProfile = () => setIsProfileOpen(false);
 
   const renderPage = () => {
     switch (route) {
@@ -60,7 +64,10 @@ function App() {
         classname="navbar"
         onOpenContact={openContact}
       />
-      <MobileNavbar classname="mobile-navbar mobile-only" />
+      <MobileNavbar
+        classname="mobile-navbar mobile-only"
+        onOpenProfile={openProfile}
+      />
       {renderPage()}
       <ContactModal
         open={isContactOpen}
@@ -69,6 +76,10 @@ function App() {
       >
         <ContactForm />
       </ContactModal>
+      <MobileProfileModal
+        open={isProfileOpen}
+        onClose={closeProfile}
+      ></MobileProfileModal>
     </>
   );
 }

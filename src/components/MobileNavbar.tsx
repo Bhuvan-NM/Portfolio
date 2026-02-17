@@ -119,14 +119,18 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
           ))}
         </nav>
 
-        <div className="img-wrap-mobile-only">
+        <button
+          type="button"
+          className="img-wrap-mobile-only"
+          onClick={onOpenProfile}
+          aria-label="Open profile"
+        >
           <img
             className="hero-img-mobile-only"
             src={selfieImage}
             alt="Selfie of Bhuvan Narasimhamurthy"
-            onClick={onOpenProfile}
           />
-        </div>
+        </button>
       </div>
     </>
   );

@@ -24,19 +24,28 @@ const Home = ({ onOpenContact }: HomeProps) => {
         <div className="homepage-content ">
           <h3 className="homepage-content-h3">Hi, I'm Bhuvan NM!</h3>
           <h1 className="homepage-content-h1">
-            Web <span>Designer</span>
+            Software <span>Developer</span>
           </h1>
 
           <p className="homepage-content-p">
-            I’m a web designer who builds clear, responsive websites with a
-            strong focus on layout, usability, and visual balance. I take a
-            thoughtful approach to turning ideas into well-structured
-            interfaces, paying close attention to spacing, hierarchy, and
-            consistency across devices. My work prioritises clarity and
-            intention, aiming to create designs that feel calm, intuitive, and
-            purposeful rather than overworked. Ultimately, I focus on producing
-            interfaces that not only look refined but also feel natural and
-            reliable to use.
+            I’m a fourth year Bachelor of Engineering (Computer and Network
+            Engineering) (Honours) and Bachelor of Computer Science student at
+            RMIT University, graduating in 2027 with a GPA of 3.0.
+          </p>
+
+          <p className="homepage-content-p">
+            I work across Python, Java, C++, JavaScript, and TypeScript,
+            building software, web applications, and algorithmic solutions with
+            a strong focus on clean design and practical performance. My
+            background in fast paced operational environments has strengthened
+            my leadership, communication, and problem solving skills.
+          </p>
+
+          <p className="homepage-content-p">
+            I’m currently seeking internship opportunities in network
+            engineering, software development, and systems focused roles where I
+            can contribute to real world projects and continue developing as an
+            engineer.
           </p>
 
           <div className="cta-Section ">
@@ -97,7 +106,6 @@ const Home = ({ onOpenContact }: HomeProps) => {
           alt="Selfie of Bhuvan Narasimhamurthy"
         />
       </div>
-
     </div>
   );
 };

@@ -1,0 +1,167 @@
+@use "../abstracts/variables" as *;
+
+.mobile-profile-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2100;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgb(var(--colour-tertiary-accent-rgb) / 0.55);
+  backdrop-filter: blur(4px);
+  animation: mobileProfileBackdrop 240ms ease-out;
+}
+
+.mobile-profile-modal-content {
+  width: min(92vw, 38rem);
+  max-height: min(82dvh, 68rem);
+  overflow: auto;
+  border-radius: 2rem;
+  background-color: color-mix(
+    in srgb,
+    var(--colour-primary-bg) 95%,
+    var(--colour-tertiary-accent)
+  );
+  backdrop-filter: blur(12px);
+  animation: mobileProfileRise 320ms ease-out;
+}
+
+.mobile-profile-card {
+  display: grid;
+  gap: 1.8rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background: rgb(var(--colour-glass-light-rgb) / 0.75);
+  backdrop-filter: blur(10px) brightness(120%);
+
+  border: 1px solid var(--colour-border);
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.12),
+    0 2.6rem 6rem rgb(var(--colour-tertiary-accent-rgb) / 0.25);
+}
+
+.profileCard-img-container {
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.profileCard-img {
+  width: 34rem;
+  height: 28rem;
+  display: block;
+  object-fit: cover;
+}
+
+.mobile-profile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.6rem;
+}
+
+.mobile-profile-eyebrow {
+  margin: 0;
+  font-size: 1.1rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--colour-accent-txt);
+}
+
+.mobile-profile-title {
+  margin: 0.4rem 0 0;
+  font-size: 2.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--colour-primary-txt);
+}
+
+.mobile-profile-subtitle {
+  margin: 0.6rem 0 0;
+  font-size: 1.4rem;
+  color: var(--colour-secondary-txt);
+}
+
+.mobile-profile-close {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 999px;
+  border: 1px solid var(--colour-border);
+  background: transparent;
+  color: var(--colour-secondary-txt);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.mobile-profile-close:focus-visible {
+  outline: 2px solid var(--colour-primary-accent);
+  outline-offset: 3px;
+}
+
+.mobile-profile-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.2rem;
+}
+
+.mobile-profile-toggle {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.6rem;
+}
+
+.mobile-profile-row {
+  display: grid;
+  gap: 0.4rem;
+  padding: 1rem 1.2rem;
+  border-radius: 1.2rem;
+  background: rgb(var(--colour-glass-light-rgb) / 0.45);
+  border: 1px solid rgb(var(--colour-tertiary-accent-rgb) / 0.08);
+}
+
+.mobile-profile-label {
+  font-size: 1rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--colour-accent-txt);
+}
+
+.mobile-profile-value {
+  font-size: 1.5rem;
+  color: var(--colour-secondary-accent);
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.mobile-profile-value:hover {
+  color: var(--colour-primary-accent);
+}
+
+@keyframes mobileProfileBackdrop {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes mobileProfileRise {
+  from {
+    opacity: 0;
+    transform: translateY(1.6rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-profile-modal-backdrop,
+  .mobile-profile-modal-content {
+    animation: none;
+  }
+}
