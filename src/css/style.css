@@ -1,32 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap");
 :root {
-  --colour-primary-bg: #ffffff;
-  --colour-secondary-bg: #b3b4b5;
-  --colour-layer-bg: #222;
-  --colour-layer-secondary-bg: #00a7e1;
-  --colour-glass: #d5d5d5;
-  --colour-primary-txt: #111827;
-  --colour-secondary-txt: #4b5563;
-  --colour-accent-txt: #9ca3af;
-  --colour-primary-accent: #00a7e1;
-  --colour-secondary-accent: #003459;
-  --colour-tertiary-accent: #00171f;
-  --colour-border: #e5e7eb;
+  --colour-primary-bg: rgb(255 255 255); /* #ffffff */
+  --colour-secondary-bg: rgb(179 180 181); /* #b3b4b5 */
+  --colour-layer-bg: rgb(34 34 34); /* #222222 */
+  --colour-layer-secondary-bg: rgb(0 167 225); /* #00a7e1 */
+  --colour-glass: rgb(213 213 213); /* #d5d5d5 */
+  --colour-primary-txt: rgb(17 24 39); /* #111827 */
+  --colour-secondary-txt: rgb(75 85 99); /* #4b5563 */
+  --colour-accent-txt: rgb(156 163 175); /* #9ca3af */
+  --colour-primary-accent: rgb(0 167 225); /* #00a7e1 */
+  --colour-secondary-accent: rgb(0 52 89); /* #003459 */
+  --colour-tertiary-accent: rgb(0 23 31); /* #00171f */
+  --colour-border: rgb(229 231 235); /* #e5e7eb */
 }
 
 .theme-dark {
-  --colour-primary-bg: #181818;
-  --colour-secondary-bg: #282828;
-  --colour-layer-bg: #082567;
-  --colour-layer-secondary-bg: #af0c15;
-  --colour-glass: #282828;
-  --colour-primary-txt: #003459;
-  --colour-secondary-txt: #687587;
-  --colour-accent-txt: #9ca3af;
-  --colour-primary-accent: #d2292d;
-  --colour-secondary-accent: #0d3580;
-  --colour-tertiary-accent: #00171f;
-  --colour-border: #3f3f3f;
+  --colour-primary-bg: rgb(24 24 24); /* #181818 */
+  --colour-secondary-bg: rgb(40 40 40); /* #282828 */
+  --colour-layer-bg: rgb(8 37 103); /* #082567 */
+  --colour-layer-secondary-bg: rgb(175 12 21); /* #af0c15 */
+  --colour-glass: rgb(40 40 40); /* #282828 */
+  --colour-primary-txt: rgb(0 52 89); /* #003459 */
+  --colour-secondary-txt: rgb(104 117 135); /* #687587 */
+  --colour-accent-txt: rgb(156 163 175); /* #9ca3af */
+  --colour-primary-accent: rgb(210 41 45); /* #d2292d */
+  --colour-secondary-accent: rgb(13 53 128); /* #0d3580 */
+  --colour-tertiary-accent: rgb(0 23 31); /* #00171f */
+  --colour-border: rgb(63 63 63); /* #3f3f3f */
 }
 
 *,
@@ -630,9 +630,10 @@ body {
   height: var(--mobile-nav-height);
   padding: 0 1.2rem;
   border-radius: 999px;
-  background: transparent;
+  background: rgba(var(--colour-glass), 0.6);
+  backdrop-filter: blur(12px);
   overflow: hidden;
-  box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .mobilenavbar--component {
@@ -653,7 +654,7 @@ body {
   outline: none;
 }
 .mobilenavbar--component:focus-visible {
-  outline: 2px solid rgb(var(--colour-primary-accent-rgb)/0.5);
+  outline: 2px solid rgb(var(--colour-glass)/0.5);
   outline-offset: 4px;
 }
 .mobilenavbar--component:active {
@@ -668,7 +669,7 @@ body {
   width: var(--indicator-width, 7.2rem);
   transform: translate3d(var(--indicator-x, 0px), 0, 0);
   border-radius: 999px;
-  background-color: rgb(var(--colour-primary-accent-rgb)/0.22);
+  background: color-mix(in srgb, var(--colour-glass) 25%, transparent);
   backdrop-filter: blur(12px) brightness(130%);
   -webkit-backdrop-filter: blur(12px) brightness(130%);
   will-change: transform;
