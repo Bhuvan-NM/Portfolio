@@ -13,6 +13,16 @@
   min-height: 100dvh;
 }
 
+:root {
+  --app-offset: 6rem;
+}
+
+@include mixins.respond(sm) {
+  :root {
+    --app-offset: 8rem;
+  }
+}
+
 #root,
 #root * {
   transition: background-color 240ms ease, color 240ms ease,
@@ -59,6 +69,10 @@ body {
 
 .mobile-only {
   display: block;
+}
+
+.app-content {
+  padding-top: var(--app-offset);
 }
 
 @include mixins.respond(sm) {

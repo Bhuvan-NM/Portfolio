@@ -106,6 +106,30 @@ const Home = ({ onOpenContact }: HomeProps) => {
           alt="Selfie of Bhuvan Narasimhamurthy"
         />
       </div>
+
+      <div className="TechnicalSkills-Section">
+        <h2 className="TechnicalSkills-Section-h2">Technical Skills</h2>
+        <div className="TechnicalSkills-Section-skills">
+          <div className="skill">
+            <h3 className="skill-h3">Programming Languages</h3>
+            <p className="skill-p">Python, Java, C++, JavaScript, TypeScript</p>
+          </div>
+
+          <div className="skill">
+            <h3 className="skill-h3">Frameworks and Libraries</h3>
+            <p className="skill-p">
+              React, Node.js, Express, Flask, Django, Spring Boot
+            </p>
+          </div>
+
+          <div className="skill">
+            <h3 className="skill-h3">Tools and Technologies</h3>
+            <p className="skill-p">
+              Git, Docker, Kubernetes, AWS, Azure, Linux
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

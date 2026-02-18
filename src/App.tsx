@@ -68,7 +68,7 @@ function App() {
         classname="mobile-navbar mobile-only"
         onOpenProfile={openProfile}
       />
-      {renderPage()}
+      <main className="app-content">{renderPage()}</main>
       <ContactModal
         open={isContactOpen}
         title="Let's chat"

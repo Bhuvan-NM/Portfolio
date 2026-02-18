@@ -50,6 +50,11 @@
 }
 
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1500;
+  width: 100%;
+  box-sizing: border-box;
   background: rgba(var(--colour-glass), 0.6);
   backdrop-filter: blur(12px) brightness(130%);
   box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.2);
