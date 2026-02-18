@@ -1,0 +1,37 @@
+.card-section {
+  width: 100%;
+  overflow: hidden;
+}
+
+.cards-wrapper {
+  display: flex;
+  transition: transform 400ms ease;
+}
+
+.card {
+  min-width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.card-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+}
+
+.bubble {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: #ccc;
+  cursor: pointer;
+  transition: transform 200ms ease, background 200ms ease;
+}
+
+.bubble.active {
+  background: #00a7e1;
+  transform: scale(1.2);
+}

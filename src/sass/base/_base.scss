@@ -9,14 +9,6 @@
   border: none;
 }
 
-#root {
-  min-height: 100dvh;
-}
-
-:root {
-  --app-offset: 6rem;
-}
-
 @include mixins.respond(sm) {
   :root {
     --app-offset: 8rem;
@@ -71,10 +63,6 @@ body {
   display: block;
 }
 
-.app-content {
-  padding-top: var(--app-offset);
-}
-
 @include mixins.respond(sm) {
   .desktop-only {
     display: block;
@@ -82,37 +70,5 @@ body {
 
   .mobile-only {
     display: none;
-  }
-}
-
-#hero {
-  height: 100vh;
-  overflow: hidden;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.route-guard-loading {
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 22rem;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  #root,
-  #root * {
-    transition: none;
   }
 }

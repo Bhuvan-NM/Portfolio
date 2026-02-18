@@ -1,7 +1,9 @@
+import { useLayoutEffect, useRef } from "react";
 import FacebookLogo from "../assets/FacebookLogo";
 import InstagramLogo from "../assets/InstagramLogo";
 import LinkedInLogo from "../assets/LinkedInLogo";
 import selfieImage from "../assets/selfie.jpg";
+import TechnicalSkillsCards from "../components/TechnicalSkillsCards";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -18,9 +20,24 @@ type HomeProps = {
 };
 
 const Home = ({ onOpenContact }: HomeProps) => {
+  const contentWrapperRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const wrapper = contentWrapperRef.current;
+    if (!wrapper) return;
+    wrapper.scrollTop = 0;
+    const raf = window.requestAnimationFrame(() => {
+      wrapper.scrollTop = 0;
+    });
+    return () => window.cancelAnimationFrame(raf);
+  }, []);
+
   return (
     <div className="homepage">
-      <div className="homepage-content-wrapper">
+      <div
+        className="homepage-content-wrapper"
+        ref={contentWrapperRef}
+      >
         <div className="homepage-content ">
           <h3 className="homepage-content-h3">Hi, I'm Bhuvan NM!</h3>
           <h1 className="homepage-content-h1">
@@ -67,36 +84,43 @@ const Home = ({ onOpenContact }: HomeProps) => {
               <FontAwesomeIcon icon="arrow-up-right-from-square" />
             </button>
           </div>
+
+          <div className="social-section desktop-only ">
+            <div
+              className="facebook"
+              onClick={() => {
+                window.open(
+                  "https://www.facebook.com/bhuvan.narasimhamurthy.3/"
+                );
+              }}
+            >
+              <FacebookLogo className="socials-icon face" />
+            </div>
+
+            <div
+              className="instagram"
+              onClick={() => {
+                window.open("https://www.instagram.com/bhuvan_n_m/");
+              }}
+            >
+              <InstagramLogo className="socials-icon insta" />
+            </div>
+
+            <div
+              className="linkedIn"
+              onClick={() => {
+                window.open("https://www.linkedin.com/in/bhuvan-nm/");
+              }}
+            >
+              <LinkedInLogo className="socials-icon link" />
+            </div>
+          </div>
         </div>
+      </div>
 
-        <div className="social-section desktop-only ">
-          <div
-            className="facebook"
-            onClick={() => {
-              window.open("https://www.facebook.com/bhuvan.narasimhamurthy.3/");
-            }}
-          >
-            <FacebookLogo className="socials-icon face" />
-          </div>
-
-          <div
-            className="instagram"
-            onClick={() => {
-              window.open("https://www.instagram.com/bhuvan_n_m/");
-            }}
-          >
-            <InstagramLogo className="socials-icon insta" />
-          </div>
-
-          <div
-            className="linkedIn"
-            onClick={() => {
-              window.open("https://www.linkedin.com/in/bhuvan-nm/");
-            }}
-          >
-            <LinkedInLogo className="socials-icon link" />
-          </div>
-        </div>
+      <div className="technicalSkills-Section">
+        <h2>Technical Skills</h2>
+        <TechnicalSkillsCards />
       </div>
 
       <div className="img-wrap desktop-only">
@@ -105,30 +129,6 @@ const Home = ({ onOpenContact }: HomeProps) => {
           src={selfieImage}
           alt="Selfie of Bhuvan Narasimhamurthy"
         />
-      </div>
-
-      <div className="TechnicalSkills-Section">
-        <h2 className="TechnicalSkills-Section-h2">Technical Skills</h2>
-        <div className="TechnicalSkills-Section-skills">
-          <div className="skill">
-            <h3 className="skill-h3">Programming Languages</h3>
-            <p className="skill-p">Python, Java, C++, JavaScript, TypeScript</p>
-          </div>
-
-          <div className="skill">
-            <h3 className="skill-h3">Frameworks and Libraries</h3>
-            <p className="skill-p">
-              React, Node.js, Express, Flask, Django, Spring Boot
-            </p>
-          </div>
-
-          <div className="skill">
-            <h3 className="skill-h3">Tools and Technologies</h3>
-            <p className="skill-p">
-              Git, Docker, Kubernetes, AWS, Azure, Linux
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   );
