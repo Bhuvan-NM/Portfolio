@@ -54,10 +54,10 @@
   height: var(--mobile-nav-height);
   padding: 0 1.2rem;
   border-radius: 999px;
-  background: rgba(var(--colour-glass), 0.6);
+  background: color-mix(in srgb, var(--colour-glass) 60%, transparent);
   backdrop-filter: blur(12px);
   overflow: hidden;
-  box-shadow: inset 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 1px 1px 1px 1px hsl(0 0% 0% / 0.2);
 }
 
 .mobilenavbar--component {
@@ -79,7 +79,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid rgb(var(--colour-glass) / 0.5);
+    outline: 2px solid color-mix(in srgb, var(--colour-glass) 50%, transparent);
     outline-offset: 4px;
   }
 

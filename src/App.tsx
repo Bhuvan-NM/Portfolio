@@ -11,6 +11,7 @@ import Portfolio from "./pages/Portfolio";
 import Background from "./assets/Background";
 import ThemeToggle from "./components/ThemeToggle";
 import { useTheme } from "./hooks/useTheme";
+import AnimatedIntro from "./assets/AnimatedIntro";
 
 function App() {
   const [route, setRoute] = useState(() => {
@@ -23,12 +24,21 @@ function App() {
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
 
-  useEffect(() => {
-    const onHashChange = () => {
-      const hash = window.location.hash || "#home";
-      setRoute(hash);
-    };
+  const [showIntro, setShowIntro] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return sessionStorage.getItem("hasVisited") !== "true";
+  });
 
+  const [isExiting, setIsExiting] = useState(false);
+
+  useEffect(() => {
+    if (showIntro) {
+      sessionStorage.setItem("hasVisited", "true");
+    }
+  }, [showIntro]);
+
+  useEffect(() => {
+    const onHashChange = () => setRoute(window.location.hash || "#home");
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
@@ -52,6 +62,17 @@ function App() {
     }
   };
 
+  if (showIntro) {
+    return (
+      <AnimatedIntro
+        text="Welcome!"
+        exiting={isExiting}
+        onLettersDone={() => setIsExiting(true)}
+        onExitDone={() => setShowIntro(false)}
+      />
+    );
+  }
+
   return (
     <>
       <ThemeToggle
@@ -59,16 +80,21 @@ function App() {
         isDark={theme === "dark"}
         onToggle={toggleTheme}
       />
+
       <Background />
+
       <Navbar
         classname="navbar"
         onOpenContact={openContact}
       />
+
       <MobileNavbar
         classname="mobile-navbar mobile-only"
         onOpenProfile={openProfile}
       />
+
       <main className="app-content">{renderPage()}</main>
+
       <ContactModal
         open={isContactOpen}
         title="Let's chat"
@@ -76,10 +102,11 @@ function App() {
       >
         <ContactForm />
       </ContactModal>
+
       <MobileProfileModal
         open={isProfileOpen}
         onClose={closeProfile}
-      ></MobileProfileModal>
+      />
     </>
   );
 }

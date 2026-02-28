@@ -24,7 +24,7 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(var(--colour-secondary-bg), 0.95);
+  background: color-mix(in srgb, var(--colour-secondary-bg) 95%, transparent);
 
   height: 100dvh; /* mobile-safe viewport */
   opacity: 0;
@@ -85,13 +85,15 @@
 }
 
 .menuLink:focus-visible {
-  outline: 2px solid rgba(var(--colour-secondary-accent), 0.6);
+  outline: 2px solid
+    color-mix(in srgb, var(--colour-secondary-accent) 60%, transparent);
   outline-offset: 6px;
   border-radius: 12px;
 }
 
 .menuLink[aria-current="page"] {
-  outline: 2px solid rgba(var(--colour-secondary-accent), 0.85);
+  outline: 2px solid
+    color-mix(in srgb, var(--colour-secondary-accent) 85%, transparent);
   outline-offset: 6px;
   border-radius: 12px;
 }

@@ -1,41 +1,41 @@
 :root {
   // Light Mode background colours
-  --colour-primary-bg: rgb(255 255 255); /* #ffffff */
-  --colour-secondary-bg: rgb(179 180 181); /* #b3b4b5 */
-  --colour-layer-bg: rgb(34 34 34); /* #222222 */
-  --colour-layer-secondary-bg: rgb(0 167 225); /* #00a7e1 */
-  --colour-glass: rgb(213 213 213); /* #d5d5d5 */
+  --colour-primary-bg: hsl(0, 0%, 100%);
+  --colour-secondary-bg: hsl(210, 1%, 71%);
+  --colour-layer-bg: hsl(0, 0%, 13%);
+  --colour-layer-secondary-bg: hsl(195, 100%, 44%);
+  --colour-glass: hsl(0, 0%, 84%);
 
   // Light Mode text colours
-  --colour-primary-txt: rgb(17 24 39); /* #111827 */
-  --colour-secondary-txt: rgb(75 85 99); /* #4b5563 */
-  --colour-accent-txt: rgb(156 163 175); /* #9ca3af */
+  --colour-primary-txt: hsl(180, 43, 4);
+  --colour-secondary-txt: hsl(215, 14%, 34%);
+  --colour-accent-txt: hsl(218, 11%, 65%);
 
   // Light Mode accent colours
-  --colour-primary-accent: rgb(0 167 225); /* #00a7e1 */
-  --colour-secondary-accent: rgb(0 52 89); /* #003459 */
-  --colour-tertiary-accent: rgb(0 23 31); /* #00171f */
-  --colour-border: rgb(229 231 235); /* #e5e7eb */
+  --colour-primary-accent: hsl(195, 100%, 44%);
+  --colour-secondary-accent: hsl(205, 100%, 17%);
+  --colour-tertiary-accent: hsl(195, 100%, 6%);
+  --colour-border: hsl(220, 13%, 91%);
 }
 
 .theme-dark {
   // Dark Mode background colours
-  --colour-primary-bg: rgb(24 24 24); /* #181818 */
-  --colour-secondary-bg: rgb(40 40 40); /* #282828 */
-  --colour-layer-bg: rgb(8 37 103); /* #082567 */
-  --colour-layer-secondary-bg: rgb(175 12 21); /* #af0c15 */
-  --colour-glass: rgb(40 40 40); /* #282828 */
+  --colour-primary-bg: hsl(180, 47%, 3%);
+  --colour-secondary-bg: hsl(210, 1%, 20%);
+  --colour-layer-bg: hsl(210, 1%, 13%);
+  --colour-layer-secondary-bg: hsl(205, 100%, 17%);
+  --colour-glass: hsl(210, 1%, 20%);
 
   // Dark Mode text colours
-  --colour-primary-txt: rgb(0 52 89); /* #003459 */
-  --colour-secondary-txt: rgb(104 117 135); /* #687587 */
-  --colour-accent-txt: rgb(156 163 175); /* #9ca3af */
+  --colour-primary-txt: hsl(180, 43%, 96%);
+  --colour-secondary-txt: hsl(215, 14%, 34%);
+  --colour-accent-txt: hsl(218, 11%, 65%);
 
   // Dark Mode accent colours
-  --colour-primary-accent: rgb(210 41 45); /* #d2292d */
-  --colour-secondary-accent: rgb(13 53 128); /* #0d3580 */
-  --colour-tertiary-accent: rgb(0 23 31); /* #00171f */
-  --colour-border: rgb(63 63 63); /* #3f3f3f */
+  --colour-primary-accent: hsl(195, 100%, 56%);
+  --colour-secondary-accent: hsl(205, 100%, 83%);
+  --colour-tertiary-accent: hsl(195, 100%, 94%);
+  --colour-border: hsl(220, 13%, 91%);
 }
 
 // Breakpoints

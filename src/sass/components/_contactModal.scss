@@ -8,7 +8,11 @@
   display: grid;
   place-items: center;
   padding: 2rem;
-  background: rgba(var(--colour-tertiary-accent), 0.55);
+  background: color-mix(
+    in srgb,
+    var(--colour-tertiary-accent) 55%,
+    transparent
+  );
   backdrop-filter: blur(3px);
   animation: modalBackdropFade 240ms ease-out;
 }
@@ -22,7 +26,7 @@
   color: var(--colour-primary-txt);
   border: 1px solid var(--colour-border);
   border-radius: 1.6rem;
-  box-shadow: 0 2.4rem 6rem rgba(var(--colour-tertiary-accent), 0.25);
+  box-shadow: 0 2.4rem 6rem hsl(var(--colour-tertiary-accent), 0.25);
   animation: modalRise 320ms ease-out;
 }
 
@@ -110,7 +114,7 @@
 
   &:focus {
     border-color: var(--colour-primary-accent);
-    box-shadow: 0 0 0 0.3rem rgba(var(--colour-primary-accent), 0.2);
+    box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--colour-primary-accent) 20%, transparent);
   }
 }
 
