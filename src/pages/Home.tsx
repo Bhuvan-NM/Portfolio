@@ -1,4 +1,3 @@
-import { useLayoutEffect, useRef } from "react";
 import FacebookLogo from "../assets/FacebookLogo";
 import InstagramLogo from "../assets/InstagramLogo";
 import LinkedInLogo from "../assets/LinkedInLogo";
@@ -12,6 +11,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { InfoCard } from "../components/InfoCard";
 
 library.add(fas, far, fab);
 
@@ -20,26 +20,12 @@ type HomeProps = {
 };
 
 const Home = ({ onOpenContact }: HomeProps) => {
-  const contentWrapperRef = useRef<HTMLDivElement>(null);
-
-  useLayoutEffect(() => {
-    const wrapper = contentWrapperRef.current;
-    if (!wrapper) return;
-    wrapper.scrollTop = 0;
-    const raf = window.requestAnimationFrame(() => {
-      wrapper.scrollTop = 0;
-    });
-    return () => window.cancelAnimationFrame(raf);
-  }, []);
-
   return (
     <div className="homepage">
-      <div
-        className="homepage-content-wrapper"
-        ref={contentWrapperRef}
-      >
-        <div className="homepage-content ">
+      <InfoCard className=" homepage-content">
+        <div className="homepage-content">
           <h3 className="homepage-content-h3">Hi, I'm Bhuvan NM!</h3>
+
           <h1 className="homepage-content-h1">
             Software <span>Developer</span>
           </h1>
@@ -65,7 +51,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
             engineer.
           </p>
 
-          <div className="cta-Section ">
+          <div className="cta-Section">
             <button
               className="cta-1"
               onClick={() => {
@@ -75,6 +61,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
               Projects
               <FontAwesomeIcon icon="code" />
             </button>
+
             <button
               className="cta-2"
               type="button"
@@ -85,43 +72,43 @@ const Home = ({ onOpenContact }: HomeProps) => {
             </button>
           </div>
 
-          <div className="social-section desktop-only ">
+          <div className="social-section desktop-only">
             <div
               className="facebook"
-              onClick={() => {
+              onClick={() =>
                 window.open(
                   "https://www.facebook.com/bhuvan.narasimhamurthy.3/"
-                );
-              }}
+                )
+              }
             >
               <FacebookLogo className="socials-icon face" />
             </div>
 
             <div
               className="instagram"
-              onClick={() => {
-                window.open("https://www.instagram.com/bhuvan_n_m/");
-              }}
+              onClick={() =>
+                window.open("https://www.instagram.com/bhuvan_n_m/")
+              }
             >
               <InstagramLogo className="socials-icon insta" />
             </div>
 
             <div
               className="linkedIn"
-              onClick={() => {
-                window.open("https://www.linkedin.com/in/bhuvan-nm/");
-              }}
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/bhuvan-nm/")
+              }
             >
               <LinkedInLogo className="socials-icon link" />
             </div>
           </div>
         </div>
-      </div>
+      </InfoCard>
 
-      <div className="technicalSkills-Section">
+      <InfoCard className="technicalSkills-Section">
         <h2>Technical Skills</h2>
         <TechnicalSkillsCards />
-      </div>
+      </InfoCard>
 
       <div className="img-wrap desktop-only">
         <img

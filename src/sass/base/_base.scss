@@ -45,13 +45,25 @@ body {
   padding: 0;
   background: transparent;
   min-height: 100dvh;
+}
 
-  @include mixins.respond(lg) {
-    padding: 0 2rem;
+.app-content {
+  padding-top: var(--app-offset);
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@include mixins.respond(lg) {
+  .app-content {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
+}
 
-  @include mixins.respond(sm) {
-    padding: 0 1rem;
+@include mixins.respond(sm) {
+  .app-content {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 
