@@ -17,9 +17,12 @@
 
 #root,
 #root * {
-  transition: background-color 240ms ease, color 240ms ease,
-    border-color 240ms ease, box-shadow 240ms ease, fill 240ms ease,
-    stroke 240ms ease;
+  transition:
+    background-color 1000ms ease,
+    color 1000ms ease,
+    border-color 1000ms ease,
+    box-shadow 1000ms ease,
+    fill 150ms ease;
 }
 
 html {
