@@ -2,7 +2,17 @@ import FacebookLogo from "../assets/FacebookLogo";
 import InstagramLogo from "../assets/InstagramLogo";
 import LinkedInLogo from "../assets/LinkedInLogo";
 import selfieImage from "../assets/selfie.jpg";
-import TechnicalSkillsCards from "../components/TechnicalSkillsCards";
+import {
+  WrenchIcon,
+  ReactIcon,
+  TypeScriptIcon,
+  SassIcon,
+  GithubIcon,
+  PythonIcon,
+  CSSIcon,
+  HTMLIcon,
+  CodeIcon,
+} from "../assets/Icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -77,7 +87,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
               className="facebook"
               onClick={() =>
                 window.open(
-                  "https://www.facebook.com/bhuvan.narasimhamurthy.3/"
+                  "https://www.facebook.com/bhuvan.narasimhamurthy.3/",
                 )
               }
             >
@@ -105,10 +115,60 @@ const Home = ({ onOpenContact }: HomeProps) => {
         </div>
       </InfoCard>
 
-      <InfoCard className="technicalSkills-Section">
-        <h2>Technical Skills</h2>
-        <TechnicalSkillsCards />
-      </InfoCard>
+      <div className="technicalSkills-Section">
+        <h2 className="technicalSkills-Heading">
+          <span>
+            <WrenchIcon className="wrench-icon" />
+          </span>
+          Skills and Interests
+        </h2>
+        <div className="technicalSkills-card-holder">
+          <InfoCard className="technicalSkills-card technical">
+            <h3>
+              <span>
+                <CodeIcon className="technicalSkills-card-HeadingIcon" />
+              </span>
+              Technical
+            </h3>
+            <div className="technicalSkills-row">
+              <span className="technicalSkills-card-element">
+                <ReactIcon className="technicalSkills-card-icon" />
+                React
+              </span>
+              <span className="technicalSkills-card-element">
+                <TypeScriptIcon className="technicalSkills-card-icon" />
+                Typescript
+              </span>
+              <span className="technicalSkills-card-element">
+                <PythonIcon className="technicalSkills-card-icon" />
+                Python
+              </span>
+              <span className="technicalSkills-card-element">
+                <GithubIcon className="technicalSkills-card-icon" />
+                GitHub
+              </span>
+              <span className="technicalSkills-card-element">
+                <SassIcon className="technicalSkills-card-icon" />
+                Sass
+              </span>
+              <span className="technicalSkills-card-element">
+                <CSSIcon className="technicalSkills-card-icon" />
+                CSS
+              </span>
+              <span className="technicalSkills-card-element">
+                <HTMLIcon className="technicalSkills-card-icon" />
+                HTML
+              </span>
+            </div>
+          </InfoCard>
+          <InfoCard className="technicalSkills-card softSkills">
+            <h3>Soft Skills</h3>
+          </InfoCard>
+          <InfoCard className="technicalSkills-card interests">
+            <h3>Interests</h3>
+          </InfoCard>
+        </div>
+      </div>
 
       <div className="img-wrap desktop-only">
         <img

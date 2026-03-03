@@ -8,11 +8,7 @@
   display: grid;
   place-items: center;
   padding: 2rem;
-  background: color-mix(
-    in srgb,
-    var(--colour-tertiary-accent) 55%,
-    transparent
-  );
+  background: color-mix(in srgb, var(--colour-modal-bg) 55%, transparent);
   backdrop-filter: blur(3px);
   animation: modalBackdropFade 240ms ease-out;
 }
@@ -114,7 +110,8 @@
 
   &:focus {
     border-color: var(--colour-primary-accent);
-    box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--colour-primary-accent) 20%, transparent);
+    box-shadow: 0 0 0 0.3rem
+      color-mix(in srgb, var(--colour-primary-accent) 20%, transparent);
   }
 }
 

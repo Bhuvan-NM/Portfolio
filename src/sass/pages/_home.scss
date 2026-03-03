@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   gap: 4rem;
-  padding: 0px 0px 100px 0px;
+  padding: 25px 12.5px 100px 12.5px;
 }
 
 .homepage-content-wrapper {
@@ -16,6 +16,9 @@
   padding: 2rem;
   justify-content: center;
   flex-direction: column;
+
+  border-top: 1px solid var(--colour-border);
+  border-left: 1px solid var(--colour-border);
 }
 
 .theme-dark .homepage-content-wrapper {
@@ -29,7 +32,7 @@
 
   &-h3 {
     font-size: 1.5rem;
-    color: var(--colour-primary-txt);
+    color: var(--colour-accent-txt);
   }
 
   &-h1 {
@@ -46,7 +49,7 @@
 
   &-p {
     font-size: 1.6rem;
-    color: var(--colour-secondary-txt);
+    color: var(--colour-primary-txt);
     line-height: 1.8;
     margin-top: 15px;
   }
@@ -107,14 +110,121 @@
 
 .technicalSkills-Section {
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 95%;
+  flex-direction: column;
+}
+
+.technicalSkills-Heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  gap: 1rem;
+  line-height: 1;
+  margin-bottom: 1rem;
+
+  color: var(--colour-primary-txt);
+}
+
+.technicalSkills-card-HeadingIcon {
+  width: 3rem;
+  height: 3rem;
+  stroke: var(--colour-primary-accent);
+}
+
+.technicalSkills-card h3 {
+  display: inline-flex;
+  justify-items: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-weight: 700;
+  font-size: 3rem;
+  color: var(--colour-primary-txt);
+}
+
+.technicalSkills-Heading > span {
+  display: flex;
+  align-items: center;
+}
+
+.wrench-icon {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  color: var(--colour-primary-accent);
+  border-radius: 15px;
+  padding: 0.5rem;
+}
+
+.technicalSkills-card-holder {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
 
-  background-color: color-mix(in srgb, var(--colour-glass) 50%, transparent);
-  border-radius: 25px;
-  backdrop-filter: blur(30px) brightness(150%);
-  border-top: 1px solid rgb(255 255 255 / 0.4);
-  border-left: 1px solid rgb(255 255 255 / 0.3);
-  box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.2);
+  gap: 1rem;
+}
+
+.technicalSkills-card {
+  flex: 1 1 300px;
+  min-width: 280px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.technicalSkills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.technicalSkills-card-element {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  line-height: 1;
+
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+
+  background-color: var(--colour-primary-bg);
+  border: 2px solid var(--colour-border);
+  color: var(--colour-primary-txt);
+}
+
+.technicalSkills-card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: auto;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--colour-primary-txt);
+  fill: var(--colour-primary-txt);
+}
+
+.technical {
+  box-shadow: inset 0px 0px 10px 1px rgba(0, 34, 255, 0.339);
+}
+
+.softSkills {
+  box-shadow: inset 0px 0px 10px 1px rgba(255, 34, 34, 0.339);
+}
+
+.interests {
+  box-shadow: inset 0px 0px 10px 1px rgba(34, 255, 34, 0.339);
 }
 
 @include respond(xs) {
@@ -238,13 +348,17 @@
     align-self: center;
   }
 
-  .homepage-content {
-    width: 95%;
+  .homepage-content-wrapper {
+    grid-area: 1 / 1 / 2 / 2;
+    max-width: 95%;
+    height: 100%;
+    justify-self: center;
+    align-self: center;
   }
 
   .technicalSkills-Section {
     grid-area: 2 / 2 / 3 / 3;
-    width: 95%;
+    max-width: 95%;
     height: 100%;
     justify-self: center;
     align-self: center;

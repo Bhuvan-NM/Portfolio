@@ -7,8 +7,6 @@
 @use "backgrounds/background";
 @use "backgrounds/animatedIntro";
 
-@use "pages/home";
-
 @use "layout/navbar";
 @use "layout/mobileNavbar";
 
@@ -18,3 +16,5 @@
 @use "components/contactModal";
 @use "components/mobileProfileModal";
 @use "components/infoCard";
+
+@use "pages/home";

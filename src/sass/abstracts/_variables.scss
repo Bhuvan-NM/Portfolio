@@ -16,6 +16,8 @@
   --colour-secondary-accent: hsl(205, 100%, 17%);
   --colour-tertiary-accent: hsl(195, 100%, 6%);
   --colour-border: hsl(220, 13%, 91%);
+
+  --colour-modal-bg: hsl(195, 100%, 6%);
 }
 
 .theme-dark {
@@ -35,7 +37,9 @@
   --colour-primary-accent: hsl(195, 100%, 56%);
   --colour-secondary-accent: hsl(205, 100%, 83%);
   --colour-tertiary-accent: hsl(195, 100%, 94%);
-  --colour-border: hsl(220, 13%, 91%);
+  --colour-border: hsla(0, 0%, 0%, 0.26);
+
+  --colour-modal-bg: hsl(0, 0%, 13%);
 }
 
 // Breakpoints
