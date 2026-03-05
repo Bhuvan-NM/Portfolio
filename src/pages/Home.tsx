@@ -12,6 +12,8 @@ import {
   CSSIcon,
   HTMLIcon,
   CodeIcon,
+  SkillsIcon,
+  LightBulbIcon,
 } from "../assets/Icons";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -30,6 +32,50 @@ type HomeProps = {
 };
 
 const Home = ({ onOpenContact }: HomeProps) => {
+  const TechnicalSkills = [
+    {
+      name: "React",
+      icon: <ReactIcon className="technicalSkills-card-icon" />,
+    },
+    {
+      name: "TypeScript",
+      icon: <TypeScriptIcon className="technicalSkills-card-icon" />,
+    },
+    {
+      name: "Python",
+      icon: <PythonIcon className="technicalSkills-card-icon" />,
+    },
+    {
+      name: "GitHub",
+      icon: <GithubIcon className="technicalSkills-card-icon" />,
+    },
+    { name: "Sass", icon: <SassIcon className="technicalSkills-card-icon" /> },
+    { name: "CSS", icon: <CSSIcon className="technicalSkills-card-icon" /> },
+    { name: "HTML", icon: <HTMLIcon className="technicalSkills-card-icon" /> },
+  ];
+
+  const SoftSkills = [
+    { name: "Communication" },
+    { name: "Leadership" },
+    { name: "Problem Solving" },
+    { name: "Teamwork" },
+    { name: "Adaptability" },
+    { name: "Time Management" },
+    { name: "Critical Thinking" },
+    { name: "Reliable" },
+  ];
+
+  const Interests = [
+    { name: "Software Development" },
+    { name: "Network Engineering" },
+    { name: "Systems Design" },
+    { name: "Algorithmic Problem Solving" },
+    { name: "Open Source Contribution" },
+    { name: "Cloud Computing / Architecture" },
+    { name: "AI / Machine Learning" },
+    { name: "Fullstack Development" },
+  ];
+
   return (
     <div className="homepage">
       <InfoCard className=" homepage-content">
@@ -131,41 +177,52 @@ const Home = ({ onOpenContact }: HomeProps) => {
               Technical
             </h3>
             <div className="technicalSkills-row">
-              <span className="technicalSkills-card-element">
-                <ReactIcon className="technicalSkills-card-icon" />
-                React
-              </span>
-              <span className="technicalSkills-card-element">
-                <TypeScriptIcon className="technicalSkills-card-icon" />
-                Typescript
-              </span>
-              <span className="technicalSkills-card-element">
-                <PythonIcon className="technicalSkills-card-icon" />
-                Python
-              </span>
-              <span className="technicalSkills-card-element">
-                <GithubIcon className="technicalSkills-card-icon" />
-                GitHub
-              </span>
-              <span className="technicalSkills-card-element">
-                <SassIcon className="technicalSkills-card-icon" />
-                Sass
-              </span>
-              <span className="technicalSkills-card-element">
-                <CSSIcon className="technicalSkills-card-icon" />
-                CSS
-              </span>
-              <span className="technicalSkills-card-element">
-                <HTMLIcon className="technicalSkills-card-icon" />
-                HTML
-              </span>
+              {TechnicalSkills.map((TechincalSkills) => (
+                <div
+                  key={TechincalSkills.name}
+                  className="technicalSkills-card-element"
+                >
+                  {TechincalSkills.icon}
+                  <span>{TechincalSkills.name}</span>
+                </div>
+              ))}
             </div>
           </InfoCard>
           <InfoCard className="technicalSkills-card softSkills">
-            <h3>Soft Skills</h3>
+            <h3>
+              <span>
+                <SkillsIcon className="technicalSkills-card-HeadingIcon" />
+              </span>
+              Soft Skills
+            </h3>
+            <div className="technicalSkills-row">
+              {SoftSkills.map((skill) => (
+                <div
+                  key={skill.name}
+                  className="technicalSkills-card-element"
+                >
+                  <span>{skill.name}</span>
+                </div>
+              ))}
+            </div>
           </InfoCard>
           <InfoCard className="technicalSkills-card interests">
-            <h3>Interests</h3>
+            <h3>
+              <span>
+                <LightBulbIcon className="technicalSkills-card-HeadingIcon" />
+              </span>
+              Interests
+            </h3>
+            <div className="technicalSkills-row">
+              {Interests.map((interest) => (
+                <div
+                  key={interest.name}
+                  className="technicalSkills-card-element"
+                >
+                  <span>{interest.name}</span>
+                </div>
+              ))}
+            </div>
           </InfoCard>
         </div>
       </div>
