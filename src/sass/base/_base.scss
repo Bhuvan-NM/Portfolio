@@ -11,7 +11,7 @@
 
 @include mixins.respond(sm) {
   :root {
-    --app-offset: 8rem;
+    --app-offset: 3rem;
   }
 }
 
@@ -56,34 +56,10 @@ body {
   padding-right: 0;
 }
 
-@include mixins.respond(lg) {
-  .app-content {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-@include mixins.respond(sm) {
-  .app-content {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
 .desktop-only {
   display: none;
 }
 
 .mobile-only {
   display: block;
-}
-
-@include mixins.respond(sm) {
-  .desktop-only {
-    display: block;
-  }
-
-  .mobile-only {
-    display: none;
-  }
 }

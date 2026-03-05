@@ -17,7 +17,7 @@
   z-index: 1000;
 }
 
-@include respond(sm) {
+@include respond(lg) {
   .mobile-navbar {
     display: none;
   }
