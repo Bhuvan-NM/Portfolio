@@ -1,10 +1,5 @@
 const History = () => {
-  return (
-    <section className="page">
-      <h1>History</h1>
-      <p>Tell your story here.</p>
-    </section>
-  );
+  return <div className="history">history</div>;
 };
 
 export default History;

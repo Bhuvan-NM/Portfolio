@@ -1,9 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap");
 :root {
-  --colour-primary-bg: hsl(0, 0%, 100%);
+  --colour-primary-bg: hsla(0, 0%, 100%, 0.95);
   --colour-secondary-bg: hsl(210, 1%, 71%);
-  --colour-layer-bg: hsl(0, 0%, 13%);
-  --colour-layer-secondary-bg: hsl(195, 100%, 44%);
+  --colour-layer-bg: hsl(0, 0%, 52%);
+  --colour-layer-secondary-bg: hsl(195, 100%, 30%);
   --colour-glass: hsl(0, 0%, 84%);
   --colour-primary-txt: hsl(180, 43, 4);
   --colour-secondary-txt: hsl(215, 14%, 34%);
@@ -786,6 +786,54 @@ body {
   resize: vertical;
 }
 
+.contactPhoneInput {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid var(--colour-border);
+  background: color-mix(in srgb, var(--colour-primary-bg) 98%, black);
+  color: var(--colour-primary-txt);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contactPhoneInput:focus-within {
+  border-color: var(--colour-primary-accent);
+  box-shadow: 0 0 0 0.3rem color-mix(in srgb, var(--colour-primary-accent) 20%, transparent);
+}
+
+.contactPhoneInput .PhoneInputCountry {
+  margin-right: 0.2rem;
+}
+
+.contactPhoneInput .PhoneInputCountrySelect {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 0.7rem;
+}
+
+.contactPhoneInput .PhoneInputCountryIcon {
+  width: 2rem;
+  height: 1.4rem;
+  border-radius: 0.2rem;
+}
+
+.contactPhoneInput .PhoneInputCountrySelectArrow {
+  opacity: 0.75;
+}
+
+.contactPhoneInput .PhoneInputInput {
+  min-width: 0;
+  border: none;
+  background: transparent;
+  color: var(--colour-primary-txt);
+  font-size: 1.6rem;
+  font-family: inherit;
+  outline: none;
+}
+
 .contactActions {
   display: flex;
   flex-wrap: wrap;
@@ -1425,6 +1473,113 @@ body {
     opacity: 1;
     transform: none;
     animation: none;
+  }
+}
+.contact-page-container {
+  padding: 0 4rem;
+}
+
+.contact-page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  padding: 2rem 4rem 0 4rem;
+}
+
+.contact-page-header {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contact-page-header h3 {
+  color: var(--colour-secondary-accent);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: -3.25rem;
+  text-transform: uppercase;
+}
+
+.contact-page-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 8rem;
+  color: var(--colour-primary-txt);
+}
+
+.contact-icon {
+  width: 7rem;
+  height: 7rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: hsla(210, 1%, 71%, 0.15);
+  box-shadow: -16px 20px 15px -3px rgba(0, 0, 0, 0.1);
+  color: var(--colour-primary-accent);
+}
+
+.FormandSocials {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 6rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.ContactForm-Container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 4rem;
+}
+
+.ContactForm-Container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -3rem;
+  transform: translateY(-50%) scaleY(0);
+  transform-origin: center;
+  width: 5px;
+  height: 85%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(55, 195, 255, 0.95), rgba(0, 153, 255, 0.95));
+  box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
+  animation: FormBarAnimation 0.6s ease-in-out forwards;
+}
+
+.Socials-Container {
+  width: 100%;
+}
+
+@keyframes FormBarAnimation {
+  0% {
+    transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-50%) scaleY(1);
+    opacity: 1;
+  }
+}
+@media (max-width: 1024px) {
+  .contact-page-header {
+    width: 100%;
+    padding: 1rem 0;
+  }
+  .contact-page-heading {
+    font-size: 5rem;
+  }
+  .FormandSocials {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .ContactForm-Container {
+    padding-right: 0;
+  }
+  .ContactForm-Container::after {
+    display: none;
   }
 }
 

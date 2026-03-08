@@ -1,9 +1,29 @@
+import { ContactIcon } from "../assets/Icons";
+import { InfoCard } from "../components/InfoCard";
+import ContactForm from "../components/ContactForm";
+
 const Contact = () => {
   return (
-    <section className="page">
-      <h1>Contact</h1>
-      <p>Drop a message or add your contact form here.</p>
-    </section>
+    <div className="contact-page-container">
+      <InfoCard className="contact-page">
+        <div className="contact-page-header">
+          <h3>Get In Touch</h3>
+          <h1 className="contact-page-heading">
+            <span>
+              <ContactIcon className="contact-icon" />
+            </span>
+            Contact Me
+          </h1>
+          <p>Every great project begins with a conversation. Let’s start one</p>
+        </div>
+        <div className="FormandSocials">
+          <div className="ContactForm-Container">
+            <ContactForm></ContactForm>
+          </div>
+          <div className="Contact-page-socials">oiahjfoiahfoiashf</div>
+        </div>
+      </InfoCard>
+    </div>
   );
 };
 

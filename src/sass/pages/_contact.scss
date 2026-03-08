@@ -1,0 +1,117 @@
+.contact-page-container {
+  padding: 0 4rem;
+}
+
+.contact-page {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+  padding: 2rem 4rem 0 4rem;
+}
+
+.contact-page-header {
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.contact-page-header h3 {
+  color: var(--colour-secondary-accent);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: -3.25rem;
+  text-transform: uppercase;
+}
+
+.contact-page-heading {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 8rem;
+  color: var(--colour-primary-txt);
+}
+
+.contact-icon {
+  width: 7rem;
+  height: 7rem;
+  margin-right: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  background-color: hsla(210, 1%, 71%, 0.15);
+  box-shadow: -16px 20px 15px -3px rgba(0, 0, 0, 0.1);
+  color: var(--colour-primary-accent);
+}
+
+.FormandSocials {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 6rem;
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.ContactForm-Container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding-right: 4rem;
+}
+
+.ContactForm-Container::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -3rem;
+  transform: translateY(-50%) scaleY(0);
+  transform-origin: center;
+  width: 5px;
+  height: 85%;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(55, 195, 255, 0.95),
+    rgba(0, 153, 255, 0.95)
+  );
+  box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
+  animation: FormBarAnimation 0.6s ease-in-out forwards;
+}
+
+.Socials-Container {
+  width: 100%;
+}
+
+@keyframes FormBarAnimation {
+  0% {
+    transform: translateY(-50%) scaleY(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(-50%) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-page-header {
+    width: 100%;
+    padding: 1rem 0;
+  }
+
+  .contact-page-heading {
+    font-size: 5rem;
+  }
+
+  .FormandSocials {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ContactForm-Container {
+    padding-right: 0;
+  }
+
+  .ContactForm-Container::after {
+    display: none;
+  }
+}
