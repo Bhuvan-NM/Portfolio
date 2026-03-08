@@ -1,3 +1,5 @@
+@use "../abstracts/mixins" as *;
+
 .contact-page-container {
   padding: 0 4rem;
 }
@@ -7,11 +9,12 @@
   grid-template-rows: auto 1fr;
   gap: 1rem;
   padding: 2rem 4rem 0 4rem;
+  margin-top: 3rem;
 }
 
 .contact-page-header {
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .contact-page-header h3 {
@@ -25,8 +28,9 @@
 .contact-page-heading {
   display: flex;
   align-items: center;
+  margin-top: 3.5rem;
   gap: 1rem;
-  font-size: 8rem;
+  font-size: 5rem;
   color: var(--colour-primary-txt);
 }
 
@@ -43,9 +47,9 @@
 
 .FormandSocials {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  align-items: center;
-  gap: 6rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+
   position: relative;
   margin-bottom: 2rem;
 }
@@ -54,26 +58,6 @@
   position: relative;
   width: 100%;
   max-width: 100%;
-  padding-right: 4rem;
-}
-
-.ContactForm-Container::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -3rem;
-  transform: translateY(-50%) scaleY(0);
-  transform-origin: center;
-  width: 5px;
-  height: 85%;
-  border-radius: 999px;
-  background: linear-gradient(
-    180deg,
-    rgba(55, 195, 255, 0.95),
-    rgba(0, 153, 255, 0.95)
-  );
-  box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
-  animation: FormBarAnimation 0.6s ease-in-out forwards;
 }
 
 .Socials-Container {
@@ -92,26 +76,49 @@
   }
 }
 
-@media (max-width: 1024px) {
+@include respond(lg) {
+  .contact-page {
+    transform: scale(0.95);
+  }
+}
+
+@include respond(xl) {
+  .contact-page {
+    margin-top: 0;
+  }
+
   .contact-page-header {
-    width: 100%;
-    padding: 1rem 0;
+    margin-top: 2rem;
+    padding: 2rem;
   }
 
   .contact-page-heading {
-    font-size: 5rem;
-  }
-
-  .FormandSocials {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .ContactForm-Container {
-    padding-right: 0;
+    margin-top: 0;
+    font-size: 8rem;
   }
 
   .ContactForm-Container::after {
-    display: none;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -3rem;
+    transform: translateY(-50%) scaleY(0);
+    transform-origin: center;
+    width: 5px;
+    height: 85%;
+    border-radius: 999px;
+    background: linear-gradient(
+      180deg,
+      rgba(55, 195, 255, 0.95),
+      rgba(0, 153, 255, 0.95)
+    );
+    box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
+    animation: FormBarAnimation 0.6s ease-in-out forwards;
+  }
+
+  .FormandSocials {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 6rem;
   }
 }

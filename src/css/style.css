@@ -1067,7 +1067,7 @@ body {
   border-radius: 0.75rem;
   background-color: color-mix(in srgb, var(--colour-glass) 50%, transparent);
   border-radius: 25px;
-  backdrop-filter: blur(50px) brightness(150%);
+  backdrop-filter: blur(50px) brightness(125%);
   box-shadow: -26px 26px 74px -5px rgba(0, 0, 0, 0.15);
 }
 
@@ -1484,11 +1484,12 @@ body {
   grid-template-rows: auto 1fr;
   gap: 1rem;
   padding: 2rem 4rem 0 4rem;
+  margin-top: 3rem;
 }
 
 .contact-page-header {
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  padding: 1rem 0;
 }
 
 .contact-page-header h3 {
@@ -1502,8 +1503,9 @@ body {
 .contact-page-heading {
   display: flex;
   align-items: center;
+  margin-top: 3.5rem;
   gap: 1rem;
-  font-size: 8rem;
+  font-size: 5rem;
   color: var(--colour-primary-txt);
 }
 
@@ -1520,9 +1522,8 @@ body {
 
 .FormandSocials {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  align-items: center;
-  gap: 6rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
   position: relative;
   margin-bottom: 2rem;
 }
@@ -1531,22 +1532,6 @@ body {
   position: relative;
   width: 100%;
   max-width: 100%;
-  padding-right: 4rem;
-}
-
-.ContactForm-Container::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -3rem;
-  transform: translateY(-50%) scaleY(0);
-  transform-origin: center;
-  width: 5px;
-  height: 85%;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(55, 195, 255, 0.95), rgba(0, 153, 255, 0.95));
-  box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
-  animation: FormBarAnimation 0.6s ease-in-out forwards;
 }
 
 .Socials-Container {
@@ -1563,23 +1548,41 @@ body {
     opacity: 1;
   }
 }
-@media (max-width: 1024px) {
+@media (min-width: 1024px) {
+  .contact-page {
+    transform: scale(0.95);
+  }
+}
+@media (min-width: 1280px) {
+  .contact-page {
+    margin-top: 0;
+  }
   .contact-page-header {
-    width: 100%;
-    padding: 1rem 0;
+    margin-top: 2rem;
+    padding: 2rem;
   }
   .contact-page-heading {
-    font-size: 5rem;
-  }
-  .FormandSocials {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-  .ContactForm-Container {
-    padding-right: 0;
+    margin-top: 0;
+    font-size: 8rem;
   }
   .ContactForm-Container::after {
-    display: none;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -3rem;
+    transform: translateY(-50%) scaleY(0);
+    transform-origin: center;
+    width: 5px;
+    height: 85%;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(55, 195, 255, 0.95), rgba(0, 153, 255, 0.95));
+    box-shadow: 0 0 18px rgba(0, 153, 255, 0.35);
+    animation: FormBarAnimation 0.6s ease-in-out forwards;
+  }
+  .FormandSocials {
+    grid-template-columns: 1.15fr 1fr;
+    align-items: center;
+    gap: 6rem;
   }
 }
 
