@@ -316,14 +316,6 @@
   }
 }
 
-.social-section {
-  display: flex;
-  align-items: center;
-
-  gap: 30px;
-  padding: 10px;
-}
-
 .socials-icon {
   width: 4rem;
   height: 4rem;
@@ -348,7 +340,6 @@
 }
 
 @include respond(lg) {
-
   .desktop-only {
     display: block;
   }
@@ -397,10 +388,15 @@
     margin: 0;
     z-index: 1600;
   }
-}
 
-.social-section {
-  display: none;
+  .social-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+    padding: 10px;
+  }
 }
 
 .homepage-content > * {

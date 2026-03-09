@@ -1,6 +1,8 @@
 @use "../abstracts/mixins" as *;
 
 .contact-page-container {
+  display: flex;
+  justify-content: center;
   padding: 0 4rem;
 }
 
@@ -49,7 +51,6 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
-
   position: relative;
   margin-bottom: 2rem;
 }
@@ -64,6 +65,75 @@
   width: 100%;
 }
 
+.Contact-page-socials {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.Contact-page-socials-element {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 1.4rem 1.6rem;
+  border-radius: 18px;
+  text-decoration: none;
+  color: var(--colour-primary-txt);
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateX(-40px) scale(0.9);
+  animation: SocialCardEntrance 0.65s ease forwards;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.Contact-page-socials-element:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 153, 255, 0.2);
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.Contact-page-socials-element:focus-visible {
+  outline: 2px solid var(--colour-primary-accent);
+  outline-offset: 4px;
+}
+
+.Contact-page-socials-element span {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.contact-socials-icon {
+  width: 4rem;
+  height: 4rem;
+  color: var(--colour-primary-accent);
+  border-radius: 15px;
+  background-color: hsla(210, 1%, 71%, 0.15);
+  box-shadow: -16px 20px 15px -3px rgba(0, 0, 0, 0.1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  transition: transform 0.2s ease-in-out;
+}
+
+.Contact-page-socials-element:hover .contact-socials-icon {
+  transform: scale(1.08);
+}
+
 @keyframes FormBarAnimation {
   0% {
     transform: translateY(-50%) scaleY(0);
@@ -76,9 +146,26 @@
   }
 }
 
+@keyframes SocialCardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px) scale(0.9);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateX(6px) scale(1.03);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
 @include respond(lg) {
   .contact-page {
-    transform: scale(0.95);
+    width: 50dvw;
   }
 }
 
@@ -120,5 +207,9 @@
     grid-template-columns: 1.15fr 1fr;
     align-items: center;
     gap: 6rem;
+  }
+
+  .Contact-page-socials {
+    max-width: 42rem;
   }
 }

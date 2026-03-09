@@ -1,7 +1,5 @@
-import FacebookLogo from "../assets/FacebookLogo";
-import InstagramLogo from "../assets/InstagramLogo";
-import LinkedInLogo from "../assets/LinkedInLogo";
 import selfieImage from "../assets/selfie.jpg";
+import { FacebookIcon, InstagramIcon, LinkedInIcon } from "../assets/Icons";
 import {
   WrenchIcon,
   ReactIcon,
@@ -137,7 +135,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
                 )
               }
             >
-              <FacebookLogo className="socials-icon face" />
+              <FacebookIcon className="socials-icon face" />
             </div>
 
             <div
@@ -146,7 +144,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
                 window.open("https://www.instagram.com/bhuvan_n_m/")
               }
             >
-              <InstagramLogo className="socials-icon insta" />
+              <InstagramIcon className="socials-icon insta" />
             </div>
 
             <div
@@ -155,7 +153,7 @@ const Home = ({ onOpenContact }: HomeProps) => {
                 window.open("https://www.linkedin.com/in/bhuvan-nm/")
               }
             >
-              <LinkedInLogo className="socials-icon link" />
+              <LinkedInIcon className="socials-icon link" />
             </div>
           </div>
         </div>
