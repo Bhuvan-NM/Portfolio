@@ -81,14 +81,25 @@
 
 .contactForm {
   display: grid;
-  gap: 1.4rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.4rem 1.2rem;
   padding: 0;
+}
+
+.contactIntro,
+.contactActions {
+  grid-column: 1 / -1;
 }
 
 .contactField {
   display: grid;
+  grid-column: 1 / -1;
   gap: 0.6rem;
   padding: 0;
+}
+
+.contactField--half {
+  grid-column: auto;
 }
 
 .contactLabel {
@@ -250,5 +261,15 @@
   .modalBackdrop,
   .modal {
     animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .contactForm {
+    grid-template-columns: 1fr;
+  }
+
+  .contactField--half {
+    grid-column: 1 / -1;
   }
 }

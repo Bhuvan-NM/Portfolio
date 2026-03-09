@@ -10,13 +10,20 @@
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 1rem;
-  padding: 2rem 4rem 0 4rem;
+  padding: 0.5rem 2rem 0 4rem;
   margin-top: 3rem;
 }
 
 .contact-page-header {
   width: 100%;
   padding: 1rem 0;
+
+  & p {
+    font-size: 1.5rem;
+    color: var(--colour-secondary-txt);
+    margin-top: 0.25rem;
+    margin-bottom: -1rem;
+  }
 }
 
 .contact-page-header h3 {
@@ -32,13 +39,13 @@
   align-items: center;
   margin-top: 3.5rem;
   gap: 1rem;
-  font-size: 5rem;
+  font-size: 3rem;
   color: var(--colour-primary-txt);
 }
 
 .contact-icon {
-  width: 7rem;
-  height: 7rem;
+  width: 5rem;
+  height: 5rem;
   margin-right: 0.5rem;
   padding: 0.5rem;
   border-radius: 10px;
@@ -81,7 +88,7 @@
   border-radius: 18px;
   text-decoration: none;
   color: var(--colour-primary-txt);
-  background: rgba(255, 255, 255, 0.45);
+  background: var(--colour--glass);
   border: 1px solid rgba(0, 0, 0, 0.06);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(8px);
@@ -114,6 +121,29 @@
   font-size: 1.7rem;
   font-weight: 600;
   letter-spacing: 0.02em;
+}
+
+.Contact-page-socials-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.Contact-page-socials-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.Contact-page-socials-description {
+  margin: 0;
+  min-height: 1.8rem;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--colour-accent-txt);
+  line-height: 1.4;
+  letter-spacing: 0.01em;
 }
 
 .contact-socials-icon {
@@ -165,7 +195,7 @@
 
 @include respond(lg) {
   .contact-page {
-    width: 50dvw;
+    width: 75%;
   }
 }
 
@@ -175,13 +205,12 @@
   }
 
   .contact-page-header {
-    margin-top: 2rem;
+    margin-top: 0rem;
     padding: 2rem;
   }
 
   .contact-page-heading {
-    margin-top: 0;
-    font-size: 8rem;
+    font-size: 4rem;
   }
 
   .ContactForm-Container::after {

@@ -116,7 +116,7 @@ const ContactForm = ({
         Tell me a bit about the opportunity and I will reply soon.
       </p>
 
-      <div className="contactField">
+      <div className="contactField contactField--half">
         <label
           className="contactLabel"
           htmlFor="contact-name"
@@ -134,7 +134,7 @@ const ContactForm = ({
         />
       </div>
 
-      <div className="contactField">
+      <div className="contactField contactField--half">
         <label
           className="contactLabel"
           htmlFor="contact-email"

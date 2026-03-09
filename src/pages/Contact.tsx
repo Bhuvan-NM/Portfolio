@@ -4,36 +4,41 @@ import ContactForm from "../components/ContactForm";
 import {
   LinkedInIcon,
   GithubIcon,
-  FacebookIcon,
-  InstagramIcon,
+  LocationIcon,
+  PhoneIcon,
   EmailIcon,
 } from "../assets/Icons";
 
 const socials = [
   {
+    name: "Email",
+    url: "mailto:bhuvanarasimha29@gmail.com",
+    description: "bhuvanarasimha29@gmail.com",
+    icon: EmailIcon,
+  },
+
+  {
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/bhuvan-narasimhamurthy/",
+    description: "bhuvan-nm",
     icon: LinkedInIcon,
   },
   {
     name: "GitHub",
     url: "https://github.com/bhuvan_nm",
+    description: "Bhuvan-NM",
     icon: GithubIcon,
   },
+
   {
-    name: "Email",
-    url: "mailto:bhuvan.narasimhamurthy@gmail.com",
-    icon: EmailIcon,
+    name: "Location",
+    description: "Melbourne, Victoria",
+    icon: LocationIcon,
   },
   {
-    name: "Facebook",
-    url: "https://www.facebook.com/bhuvan.narasimhamurthy",
-    icon: FacebookIcon,
-  },
-  {
-    name: "Instagram",
-    url: "https://www.instagram.com/bhuvan.narasimhamurthy/",
-    icon: InstagramIcon,
+    name: "Mobile",
+    description: "+61 405 235 933",
+    icon: PhoneIcon,
   },
 ];
 
@@ -71,7 +76,14 @@ const Contact = () => {
                   style={{ animationDelay: `${index * 0.12}s` }}
                 >
                   <Icon className="contact-socials-icon" />
-                  <span>{social.name}</span>
+                  <div className="Contact-page-socials-content">
+                    <span className="Contact-page-socials-title">
+                      {social.name}
+                    </span>
+                    <p className="Contact-page-socials-description">
+                      {social.description ?? ""}
+                    </p>
+                  </div>
                 </a>
               );
             })}
