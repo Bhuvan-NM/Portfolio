@@ -5,18 +5,6 @@
 *::before {
   margin: 0;
   box-sizing: inherit;
-  outline: none;
-  border: none;
-}
-
-#root,
-#root * {
-  transition:
-    background-color 1000ms ease,
-    color 1000ms ease,
-    border-color 1000ms ease,
-    box-shadow 1000ms ease,
-    fill 150ms ease;
 }
 
 html {
@@ -34,11 +22,14 @@ html {
   @include mixins.respond(2xl) {
     font-size: 75%; //1rem = 12px, 12/16 = 75%
   }
+
+  scroll-behavior: smooth;
+  overscroll-behavior: hidden;
 }
 
 body {
   box-sizing: border-box;
-  padding: 0;
+  padding: 0rem;
 }
 
 .desktop-only {
