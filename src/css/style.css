@@ -40,18 +40,12 @@
   border: none;
 }
 
-@media (min-width: 640px) {
-  :root {
-    --app-offset: 3rem;
-  }
-}
 #root,
 #root * {
   transition: background-color 1000ms ease, color 1000ms ease, border-color 1000ms ease, box-shadow 1000ms ease, fill 150ms ease;
 }
 
 html {
-  background: transparent;
   font-size: 50%;
 }
 @media (min-width: 768px) {
@@ -73,14 +67,6 @@ html {
 body {
   box-sizing: border-box;
   padding: 0;
-  background: transparent;
-  min-height: 100dvh;
-}
-
-.app-content {
-  padding-top: var(--app-offset);
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .desktop-only {

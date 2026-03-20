@@ -9,12 +9,6 @@
   border: none;
 }
 
-@include mixins.respond(sm) {
-  :root {
-    --app-offset: 3rem;
-  }
-}
-
 #root,
 #root * {
   transition:
@@ -26,7 +20,6 @@
 }
 
 html {
-  background: transparent;
   // this defines what 1rem is (mobile-first)
   font-size: 50%; //1rem = 8px, 8/16 = 50%
 
@@ -46,14 +39,6 @@ html {
 body {
   box-sizing: border-box;
   padding: 0;
-  background: transparent;
-  min-height: 100dvh;
-}
-
-.app-content {
-  padding-top: var(--app-offset);
-  padding-left: 0;
-  padding-right: 0;
 }
 
 .desktop-only {
