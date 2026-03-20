@@ -870,7 +870,11 @@ body {
 .contactTextarea {
   width: 100%;
   padding: 1.1rem 1.4rem;
+  border: 1px solid transparent;
   border-radius: 1.2rem;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
   background: color-mix(in srgb, var(--colour-glass) 70%, transparent);
   color: var(--colour-primary-txt);
   font-size: 1.6rem;
@@ -895,7 +899,9 @@ body {
   gap: 0.8rem;
   width: 100%;
   padding: 0.9rem 1.2rem;
+  border: 1px solid transparent;
   border-radius: 1.2rem;
+  outline: none;
   background: color-mix(in srgb, var(--colour-glass) 70%, transparent);
   color: var(--colour-primary-txt);
   transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
@@ -914,7 +920,11 @@ body {
 .contactPhoneInput .PhoneInputCountrySelect {
   width: 3.2rem;
   height: 3.2rem;
+  border: 1px solid transparent;
   border-radius: 0.8rem;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .contactPhoneInput .PhoneInputCountryIcon {
@@ -1593,15 +1603,16 @@ body {
 .contact-page-container {
   display: flex;
   justify-content: center;
-  padding: 0 4rem;
+  padding: 0 4rem 0rem 4rem;
 }
 
 .contact-page {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 1rem;
-  padding: 0.5rem 2rem 0 4rem;
+  padding: 0.5rem 2rem 0rem 4rem;
   margin-top: 3rem;
+  margin-bottom: 10rem;
 }
 
 .contact-page-header {
@@ -1772,6 +1783,11 @@ body {
     transform: translateX(0) scale(1);
   }
 }
+@media (min-width: 768px) {
+  .contact-page {
+    margin-top: 3rem;
+  }
+}
 @media (min-width: 1024px) {
   .contact-page {
     width: 75%;
@@ -1779,7 +1795,7 @@ body {
 }
 @media (min-width: 1480px) {
   .contact-page {
-    margin-top: 0;
+    margin-top: 2rem;
   }
   .contact-page-header {
     margin-top: 0rem;

@@ -181,7 +181,11 @@
 .contactTextarea {
   width: 100%;
   padding: 1.1rem 1.4rem;
+  border: 1px solid transparent;
   border-radius: 1.2rem;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
 
   background: color-mix(in srgb, var(--colour-glass) 70%, transparent);
   color: var(--colour-primary-txt);
@@ -211,7 +215,9 @@
   gap: 0.8rem;
   width: 100%;
   padding: 0.9rem 1.2rem;
+  border: 1px solid transparent;
   border-radius: 1.2rem;
+  outline: none;
 
   background: color-mix(in srgb, var(--colour-glass) 70%, transparent);
   color: var(--colour-primary-txt);
@@ -236,7 +242,11 @@
 .contactPhoneInput .PhoneInputCountrySelect {
   width: 3.2rem;
   height: 3.2rem;
+  border: 1px solid transparent;
   border-radius: 0.8rem;
+  background: transparent;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .contactPhoneInput .PhoneInputCountryIcon {
