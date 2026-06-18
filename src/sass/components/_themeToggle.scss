@@ -8,7 +8,7 @@
   width: 8.2rem;
   height: 4.2rem;
   padding: 0.35rem;
-  border: 1px solid color-mix(in srgb, var(--colour-border) 70%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 72%, transparent);
   border-radius: 999px;
   cursor: pointer;
   display: grid;
@@ -16,30 +16,42 @@
   align-items: center;
   justify-items: center;
   overflow: hidden;
-  background: linear-gradient(
-    135deg,
-    hsl(var(--colour-glass-light-rgb) / 0.75),
-    hsl(var(--colour-tertiary-accent-rgb) / 0.25)
-  );
-  backdrop-filter: blur(16px) saturate(140%);
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.2), transparent 42%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-surface-container-high) 82%, transparent),
+      color-mix(in srgb, var(--color-surface-container-low) 88%, transparent)
+    );
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
   box-shadow:
-    inset 0 0 0.6rem rgb(255 255 255 / 0.08),
-    inset 0 0 1px rgb(0 0 0 / 0.18),
-    0 1.2rem 2.6rem hsl(var(--colour-tertiary-accent-rgb) / 0.22);
+    inset 0 1px 0 rgb(255 255 255 / 0.28),
+    inset 0 -1px 0 color-mix(in srgb, var(--color-outline-variant) 22%, transparent),
+    0 1rem 2.4rem color-mix(in srgb, var(--color-on-primary-fixed) 16%, transparent);
   transition:
-    background-color 90ms ease,
-    box-shadow 90ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
     transform 180ms ease;
   isolation: isolate;
   -webkit-tap-highlight-color: transparent;
 
   &:focus-visible {
-    outline: 2px solid var(--colour-primary-accent);
+    outline: 2px solid var(--color-primary);
     outline-offset: 4px;
   }
 
   &:hover {
     transform: translateY(-1px);
+    border-color: color-mix(
+      in srgb,
+      var(--color-primary) 42%,
+      var(--color-outline-variant)
+    );
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.32),
+      inset 0 -1px 0 color-mix(in srgb, var(--color-outline-variant) 18%, transparent),
+      0 1.2rem 2.8rem color-mix(in srgb, var(--color-on-primary-fixed) 20%, transparent);
   }
 
   &:active {
@@ -47,20 +59,26 @@
   }
 }
 
-/* Override global transitions from base */
-.theme-toggle,
-.theme-toggle * {
-  transition: none !important;
-}
-
 .theme-toggle::before {
   content: "";
   position: absolute;
   inset: 0.35rem;
   border-radius: inherit;
-  background: linear-gradient(120deg, rgb(255 255 255 / 0.12), rgb(0 0 0 / 0));
+  background:
+    radial-gradient(
+      circle at 28% 50%,
+      color-mix(in srgb, var(--color-primary-fixed-dim) 28%, transparent),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 72% 50%,
+      color-mix(in srgb, var(--color-secondary-fixed-dim) 24%, transparent),
+      transparent 36%
+    );
+  opacity: 0.72;
   z-index: 0;
   pointer-events: none;
+  transition: opacity 180ms ease;
 }
 
 .theme-toggle--profile {
@@ -75,7 +93,7 @@
     inset 0 0 0.5rem rgb(255 255 255 / 0.08),
     inset 0 0 1px hsl(0 0% 0% / 0.16),
     0 1rem 2rem
-      color-mix(in srgb, var(--colour-tertiary-accent) 18%, transparent);
+      color-mix(in srgb, var(--color-on-primary) 18%, transparent);
 }
 
 .theme-toggle--profile:hover,
@@ -97,18 +115,27 @@
   left: 0.35rem;
   width: calc((100% - 0.7rem) / 2);
   border-radius: 999px;
-  background: linear-gradient(
-    160deg,
-    color-mix(in srgb, var(--colour-primary-accent) 32%, white),
-    color-mix(in srgb, var(--colour-primary-accent) 12%, transparent)
-  );
-  backdrop-filter: blur(10px) brightness(120%);
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgb(255 255 255 / 0.72),
+      transparent 32%
+    ),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--color-surface-bright) 78%, white 8%),
+      color-mix(in srgb, var(--color-primary-fixed-dim) 58%, var(--color-surface-container-high)) 64%,
+      color-mix(in srgb, var(--color-primary-container) 22%, var(--color-surface-container))
+    );
+  backdrop-filter: blur(10px) brightness(118%);
+  -webkit-backdrop-filter: blur(10px) brightness(118%);
   box-shadow:
-    inset 0 0 1px hsl(0 0% 0% / 0.12),
-    0 0.8rem 1.6rem hsl(var(--colour-tertiary-accent-rgb) / 0.18);
+    inset 0 1px 0 rgb(255 255 255 / 0.42),
+    inset 0 -1px 0 color-mix(in srgb, var(--color-outline-variant) 18%, transparent),
+    0 0.75rem 1.5rem color-mix(in srgb, var(--color-on-primary-fixed) 18%, transparent);
   transition:
     transform 520ms cubic-bezier(0.22, 0.8, 0.22, 1),
-    background-color 90ms ease !important;
+    box-shadow 180ms ease;
   z-index: 1;
 }
 
@@ -117,7 +144,7 @@
   height: 100%;
   display: grid;
   place-items: center;
-  color: var(--colour-secondary-txt);
+  color: var(--color-on-surface-variant);
   font-size: 1.5rem;
   line-height: 0;
   position: relative;
@@ -131,22 +158,42 @@
 }
 
 .theme-toggle.is-on {
+  background:
+    linear-gradient(180deg, rgb(255 255 255 / 0.12), transparent 40%),
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-surface-container-highest) 82%, transparent),
+      color-mix(in srgb, var(--color-primary-container) 22%, var(--color-surface-container-low)) 58%,
+      color-mix(in srgb, var(--color-secondary-container) 18%, var(--color-surface-container-lowest))
+    );
+
   .theme-toggle__thumb {
     transform: translateX(100%);
-    background: linear-gradient(
-      160deg,
-      color-mix(in srgb, var(--colour-primary-accent) 36%, white),
-      color-mix(in srgb, var(--colour-primary-accent) 16%, transparent)
-    );
+    background:
+      radial-gradient(
+        circle at 35% 28%,
+        rgb(255 255 255 / 0.46),
+        transparent 32%
+      ),
+      linear-gradient(
+        145deg,
+        color-mix(in srgb, var(--color-primary) 68%, white 4%),
+        color-mix(in srgb, var(--color-primary-container) 44%, var(--color-surface-container-high)) 64%,
+        color-mix(in srgb, var(--color-secondary-container) 24%, var(--color-surface-container))
+      );
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.36),
+      inset 0 -1px 0 color-mix(in srgb, var(--color-outline-variant) 20%, transparent),
+      0 0.8rem 1.8rem color-mix(in srgb, var(--color-on-primary-fixed) 22%, transparent);
   }
 }
 
 .theme-toggle:not(.is-on) .theme-toggle__icon--sun {
-  color: var(--colour-primary-accent);
+  color: var(--color-primary);
 }
 
 .theme-toggle.is-on .theme-toggle__icon--moon {
-  color: var(--colour-primary-accent);
+  color: var(--color-primary);
   transition: none;
 }
 

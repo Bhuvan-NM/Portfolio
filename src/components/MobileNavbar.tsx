@@ -1,10 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import selfieImage from "../assets/selfie.jpg";
 import { faHouse } from "@fortawesome/free-regular-svg-icons";
 import { faClockRotateLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 import type { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { NavLink, useLocation } from "react-router-dom";
 
 interface MobileNavbarProps {
   classname?: string;
@@ -12,33 +13,22 @@ interface MobileNavbarProps {
 }
 
 const items: { label: string; href: string; icon: IconProp }[] = [
-  { label: "Home", href: "#home", icon: faHouse },
-  { label: "History", href: "#history", icon: faClockRotateLeft },
-  { label: "Contact", href: "#contact", icon: faAddressCard },
+  { label: "Home", href: "/", icon: faHouse },
+  { label: "History", href: "/history", icon: faClockRotateLeft },
+  { label: "Contact", href: "/contact", icon: faAddressCard },
 ];
 
 const MobileNavbar: React.FC<MobileNavbarProps> = ({
   classname = "",
   onOpenProfile,
 }) => {
-  const [activeHref, setActiveHref] = useState(items[0]?.href ?? "#");
+  const location = useLocation();
   const navRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef(new Map<string, HTMLAnchorElement>());
   const prevIndexRef = useRef(0);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const syncActiveHref = () => {
-      const hash = window.location.hash;
-      const match = items.some((item) => item.href === hash);
-      setActiveHref(match ? hash : items[0]?.href ?? "#");
-    };
-
-    syncActiveHref();
-    window.addEventListener("hashchange", syncActiveHref);
-    return () => window.removeEventListener("hashchange", syncActiveHref);
-  }, []);
+  const activeHref = items.some((item) => item.href === location.pathname)
+    ? location.pathname
+    : items[0]?.href ?? "/";
 
   useEffect(() => {
     const nav = navRef.current;
@@ -97,11 +87,11 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
         >
           <span className="mobile-nav-indicator" />
           {items.map((item) => (
-            <a
+            <NavLink
               key={item.href}
-              href={item.href}
+              to={item.href}
               className="mobilenavbar--component"
-              aria-current={activeHref === item.href ? "page" : undefined}
+              end={item.href === "/"}
               ref={(node) => {
                 if (!node) {
                   itemRefs.current.delete(item.href);
@@ -115,7 +105,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
                 icon={item.icon}
               />
               <span className="mobile-nav-label">{item.label}</span>
-            </a>
+            </NavLink>
           ))}
         </nav>
 

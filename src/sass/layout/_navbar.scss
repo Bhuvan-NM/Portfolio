@@ -16,7 +16,7 @@
   text-decoration: none;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--colour-secondary-txt);
+  color: var(--color-on-surface-variant);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -25,7 +25,7 @@
 }
 
 .header-logo:hover {
-  color: var(--colour-secondary-accent);
+  color: var(--color-secondary);
   transform: translateY(-1px);
   box-shadow: none;
 }
@@ -36,7 +36,7 @@
   height: 0.75rem;
   margin-left: 0.4rem;
   border-radius: 50%;
-  background-color: var(--colour-primary-accent);
+  background-color: var(--color-primary);
   transform: translateY(0.16rem);
 }
 
@@ -45,14 +45,14 @@
   align-items: center;
   justify-content: center;
   padding: 1rem 1.8rem;
-  border: 1px solid color-mix(in srgb, var(--colour-primary-accent) 65%, white);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 65%, white);
   background: linear-gradient(
     140deg,
-    color-mix(in srgb, var(--colour-primary-accent) 90%, white 10%),
+    color-mix(in srgb, var(--color-primary) 90%, white 10%),
     color-mix(
       in srgb,
-      var(--colour-secondary-accent) 55%,
-      var(--colour-primary-accent)
+      var(--color-secondary) 55%,
+      var(--color-primary)
     )
   );
   color: white;
@@ -64,7 +64,7 @@
   text-decoration: none;
   box-shadow:
     inset 0 1px 0 hsl(0 0% 100% / 0.28),
-    0 1rem 2.6rem hsl(var(--colour-tertiary-accent-rgb) / 0.25);
+    0 1rem 2.6rem color-mix(in srgb, var(--color-on-primary-fixed) 25%, transparent);
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
@@ -77,7 +77,7 @@
   transform: translateY(-1px);
   box-shadow:
     inset 0 1px 0 hsl(0 0% 100% / 0.35),
-    0 1.3rem 3rem hsl(var(--colour-tertiary-accent-rgb) / 0.3);
+    0 1.3rem 3rem color-mix(in srgb, var(--color-on-primary-fixed) 30%, transparent);
 }
 
 .navbar {
@@ -91,10 +91,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  background: color-mix(in srgb, var(--colour-primary-bg) 82%, transparent);
+  background: color-mix(in srgb, var(--color-background) 82%, transparent);
   backdrop-filter: blur(14px) saturate(125%);
   -webkit-backdrop-filter: blur(14px) saturate(125%);
-  box-shadow: 0 1px 0 color-mix(in srgb, var(--colour-border) 72%, transparent);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--color-outline-variant) 72%, transparent);
 }
 
 .navbar > nav {
@@ -105,7 +105,7 @@
   text-decoration: none;
   font-weight: 600;
   font-size: 1.5rem;
-  color: var(--colour-accent-txt);
+  color: var(--color-outline);
   border-radius: 999px;
   padding: 0.9rem 1.6rem;
   transition:
@@ -115,12 +115,12 @@
 }
 
 .navbar--component:hover {
-  color: var(--colour-secondary-accent);
+  color: var(--color-secondary);
 }
 
 .navbar--component[aria-current="page"] {
-  color: var(--colour-secondary-accent);
-  background: color-mix(in srgb, var(--colour-primary-accent) 16%, transparent);
+  color: var(--color-secondary);
+  background: color-mix(in srgb, var(--color-primary) 16%, transparent);
 }
 
 @include respond(sm) {
@@ -146,12 +146,12 @@
     gap: 0.2rem;
     padding: 0.5rem;
     border-radius: 999px;
-    border: 1px solid color-mix(in srgb, var(--colour-border) 84%, transparent);
-    background: color-mix(in srgb, var(--colour-glass) 63%, transparent);
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 84%, transparent);
+    background: color-mix(in srgb, var(--color-surface-container-lowest) 63%, transparent);
     backdrop-filter: blur(14px) saturate(130%);
     box-shadow:
       inset 0 1px 0 hsl(0 0% 100% / 0.42),
-      0 1.4rem 3rem hsl(var(--colour-tertiary-accent-rgb) / 0.2);
+      0 1.4rem 3rem color-mix(in srgb, var(--color-on-primary-fixed) 20%, transparent);
   }
 
   .header-logo {

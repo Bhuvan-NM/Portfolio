@@ -9,7 +9,7 @@
   width: 100%;
   min-height: 100dvh;
   overflow: hidden;
-  background: var(--colour-primary-bg);
+  background: radial-gradient(90rem 60rem at 12% -8%, color-mix(in srgb, var(--color-primary-container) 12%, transparent), transparent 58%), radial-gradient(80rem 50rem at 92% 8%, color-mix(in srgb, var(--color-secondary-container) 10%, transparent), transparent 56%), linear-gradient(180deg, var(--color-background), var(--color-surface-container-low));
   z-index: -1;
   pointer-events: none;
 }
@@ -24,48 +24,48 @@
 }
 
 .layer.layer-1 {
-  background: var(--colour-layer-bg);
+  background: var(--color-surface-container-highest);
   transform: skewX(-45deg) translateX(0);
   z-index: 1;
 }
 
 .layer.layer-2 {
-  background: var(--colour-primary-bg);
+  background: color-mix(in srgb, var(--color-surface) 86%, transparent);
   transform: skewX(-45deg) translateX(-100px);
   z-index: 3;
 }
 
 .layer.layer-3 {
-  background: var(--colour-layer-secondary-bg);
+  background: var(--color-primary-container);
   transform: skewX(-45deg) translateX(-200px);
   z-index: 5;
 }
 
 .layer.layer-4 {
-  background: var(--colour-primary-bg);
+  background: color-mix(in srgb, var(--color-surface-container-low) 84%, transparent);
   transform: skewX(-45deg) translateX(-300px);
   z-index: 7;
 }
 
 .layer.layer-5 {
-  background: var(--colour-layer-secondary-bg);
+  background: var(--color-primary-container);
   transform: skewX(45deg) translateX(0);
   z-index: 2;
 }
 
 .layer.layer-6 {
-  background: var(--colour-layer-bg);
+  background: var(--color-surface-container-highest);
   transform: skewX(45deg) translateX(-100px);
   z-index: 4;
 }
 .layer.layer-7 {
-  background: var(--colour-primary-bg);
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
   transform: skewX(45deg) translateX(-200px);
   z-index: 6;
 }
 
 .layer.layer-8 {
-  background: var(--colour-primary-bg);
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 62%, transparent);
   transform: skewX(45deg) translateX(-300px);
   z-index: 8;
 }

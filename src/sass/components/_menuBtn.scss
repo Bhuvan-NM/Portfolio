@@ -12,7 +12,7 @@
   height: 48px;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: var(--colour-primary-accent);
+  background: var(--color-primary);
   color: #fff;
   cursor: pointer;
   font-size: 18px;
@@ -24,7 +24,7 @@
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: color-mix(in srgb, var(--colour-secondary-bg) 95%, transparent);
+  background: color-mix(in srgb, var(--color-surface-container-low) 95%, transparent);
 
   height: 100dvh; /* mobile-safe viewport */
   opacity: 0;
@@ -86,14 +86,14 @@
 
 .menuLink:focus-visible {
   outline: 2px solid
-    color-mix(in srgb, var(--colour-secondary-accent) 60%, transparent);
+    color-mix(in srgb, var(--color-secondary) 60%, transparent);
   outline-offset: 6px;
   border-radius: 12px;
 }
 
 .menuLink[aria-current="page"] {
   outline: 2px solid
-    color-mix(in srgb, var(--colour-secondary-accent) 85%, transparent);
+    color-mix(in srgb, var(--color-secondary) 85%, transparent);
   outline-offset: 6px;
   border-radius: 12px;
 }

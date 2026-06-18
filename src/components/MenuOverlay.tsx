@@ -1,20 +1,23 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
-type MenuItem = { label: string; href: string };
+type MenuItem = { label: string; to: string };
 
 const items: MenuItem[] = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "Portfolio", to: "/portfolio" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const MenuOverlay = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [activeHref, setActiveHref] = useState(items[0]?.href ?? "#");
   const btnRef = useRef<HTMLButtonElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const location = useLocation();
+  const activeHref = items.some((item) => item.to === location.pathname)
+    ? location.pathname
+    : items[0]?.to ?? "/";
 
   //keep the clip origin synced to the button position
   const updateClipOrigin = () => {
@@ -53,19 +56,6 @@ const MenuOverlay = () => {
     //when opening re-measure right away (button could have moved due to safe areas)
     if (isOpen) updateClipOrigin();
   }, [isOpen]);
-
-  // track active menu item by hash
-  useEffect(() => {
-    const syncActiveHref = () => {
-      const hash = window.location.hash;
-      const match = items.some((item) => item.href === hash);
-      setActiveHref(match ? hash : items[0]?.href ?? "#");
-    };
-
-    syncActiveHref();
-    window.addEventListener("hashchange", syncActiveHref);
-    return () => window.removeEventListener("hashchange", syncActiveHref);
-  }, []);
 
   // ESC to close
   useEffect(() => {
@@ -140,16 +130,17 @@ const MenuOverlay = () => {
           aria-label="Main menu"
         >
           {items.map((it, i) => (
-            <a
-              key={it.href}
-              href={it.href}
+            <NavLink
+              key={it.to}
+              to={it.to}
               ref={i === 0 ? firstLinkRef : undefined}
               className="menuLink"
-              aria-current={activeHref === it.href ? "page" : undefined}
+              aria-current={activeHref === it.to ? "page" : undefined}
+              end={it.to === "/"}
               onClick={() => setIsOpen(false)}
             >
               {it.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
       </div>

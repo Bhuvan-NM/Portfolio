@@ -10,37 +10,42 @@
   padding: 2rem;
   background:
     radial-gradient(
-      140rem 60rem at 12% -10%,
-      color-mix(in srgb, var(--colour-primary-accent) 22%, transparent),
+      100rem 64rem at 10% -12%,
+      color-mix(in srgb, var(--color-primary-container) 18%, transparent),
       transparent 60%
     ),
     radial-gradient(
-      120rem 50rem at 92% 105%,
-      color-mix(in srgb, var(--colour-secondary-accent) 18%, transparent),
+      88rem 54rem at 96% 110%,
+      color-mix(in srgb, var(--color-secondary-container) 14%, transparent),
       transparent 58%
     ),
-    color-mix(in srgb, var(--colour-modal-bg) 64%, transparent);
-  backdrop-filter: blur(10px) saturate(120%);
-  -webkit-backdrop-filter: blur(10px) saturate(120%);
+    color-mix(in srgb, var(--color-inverse-surface) 70%, transparent);
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
   animation: modalBackdropFade 300ms ease-out;
 }
 
 .modal {
   position: relative;
-  width: min(62rem, 94vw);
+  width: min(66rem, 94vw);
   max-height: min(88dvh, 76rem);
   overflow: auto;
   padding: 0;
-  background: color-mix(in srgb, var(--colour-glass) 58%, transparent);
-  color: var(--colour-primary-txt);
-  border: 1px solid color-mix(in srgb, var(--colour-border) 75%, transparent);
-  border-radius: 2.2rem;
-  backdrop-filter: blur(18px) saturate(135%);
-  -webkit-backdrop-filter: blur(18px) saturate(135%);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-surface-container-lowest) 92%, transparent),
+      color-mix(in srgb, var(--color-surface-container-low) 82%, transparent)
+    );
+  color: var(--color-on-surface);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 64%, transparent);
+  border-radius: 1.8rem;
+  backdrop-filter: blur(22px) saturate(145%);
+  -webkit-backdrop-filter: blur(22px) saturate(145%);
   box-shadow:
-    inset 0 1px 0 hsl(0 0% 100% / 0.42),
-    inset 0 -1px 0 hsl(0 0% 0% / 0.12),
-    0 2.8rem 6.4rem var(--colour-tertiary-accent-rgb);
+    inset 0 1px 0 rgb(255 255 255 / 0.24),
+    inset 0 -1px 0 color-mix(in srgb, var(--color-outline-variant) 24%, transparent),
+    0 3rem 7rem color-mix(in srgb, var(--color-on-primary-fixed) 30%, transparent);
   animation: modalRise 360ms cubic-bezier(0.22, 0.8, 0.22, 1);
 }
 
@@ -52,16 +57,16 @@
   pointer-events: none;
   background:
     linear-gradient(
-      150deg,
-      color-mix(in srgb, var(--colour-primary-accent) 16%, transparent),
-      transparent 38%
+      145deg,
+      color-mix(in srgb, var(--color-primary-container) 10%, transparent),
+      transparent 40%
     ),
-    linear-gradient(
-      325deg,
-      color-mix(in srgb, var(--colour-secondary-accent) 10%, transparent),
-      transparent 42%
+    radial-gradient(
+      60rem 24rem at 85% 0%,
+      color-mix(in srgb, var(--color-secondary-container) 12%, transparent),
+      transparent 62%
     );
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .modalHeader {
@@ -72,25 +77,30 @@
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 2rem 2.4rem 1.6rem;
+  padding: 2.2rem 2.6rem 1.8rem;
   border-bottom: 1px solid
-    color-mix(in srgb, var(--colour-border) 82%, transparent);
-  background: color-mix(in srgb, var(--colour-glass) 40%, transparent);
-  backdrop-filter: blur(10px) saturate(125%);
-  -webkit-backdrop-filter: blur(10px) saturate(125%);
+    color-mix(in srgb, var(--color-outline-variant) 58%, transparent);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--color-surface-container-lowest) 88%, transparent),
+      color-mix(in srgb, var(--color-surface-container-lowest) 58%, transparent)
+    );
+  backdrop-filter: blur(14px) saturate(130%);
+  -webkit-backdrop-filter: blur(14px) saturate(130%);
 }
 
 .modalTitle {
   margin: 0;
   padding: 0;
-  font-size: 2.1rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
   color: color-mix(
     in srgb,
-    var(--colour-secondary-accent) 72%,
-    var(--colour-primary-txt)
+    var(--color-on-surface) 84%,
+    var(--color-primary)
   );
 }
 
@@ -100,12 +110,12 @@
   width: 3.4rem;
   height: 3.4rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--colour-border) 84%, transparent);
-  background: color-mix(in srgb, var(--colour-glass) 45%, transparent);
-  color: var(--colour-secondary-txt);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 68%, transparent);
+  background: color-mix(in srgb, var(--color-surface-container) 72%, transparent);
+  color: var(--color-on-surface-variant);
   font-size: 1.8rem;
   cursor: pointer;
-  box-shadow: inset 0 1px 0 hsl(0 0% 100% / 0.38);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.24);
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
@@ -115,14 +125,14 @@
   &:hover {
     background-color: color-mix(
       in srgb,
-      var(--colour-primary-accent) 18%,
-      transparent
+      var(--color-primary-container) 18%,
+      var(--color-surface-container)
     );
-    color: var(--colour-secondary-accent);
+    color: var(--color-primary);
     border-color: color-mix(
       in srgb,
-      var(--colour-primary-accent) 42%,
-      var(--colour-border)
+      var(--color-primary) 48%,
+      var(--color-outline-variant)
     );
     transform: translateY(-1px);
   }
@@ -131,21 +141,21 @@
 .modalBody {
   position: relative;
   z-index: 1;
-  padding: 2rem 2.4rem 2.4rem;
+  padding: 2.2rem 2.6rem 2.6rem;
 }
 
 .contactIntro {
   margin: 0 0 1.2rem;
   padding: 0;
   font-size: 1.5rem;
-  color: var(--colour-secondary-txt);
-  line-height: 1.55;
+  color: var(--color-on-surface-variant);
+  line-height: 1.6;
 }
 
 .contactForm {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.4rem 1.2rem;
+  gap: 1.5rem 1.3rem;
   padding: 0;
 }
 
@@ -167,40 +177,46 @@
 
 .contactLabel {
   font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.11em;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: color-mix(
     in srgb,
-    var(--colour-accent-txt) 92%,
-    var(--colour-primary-txt)
+    var(--color-on-surface-variant) 78%,
+    var(--color-primary)
   );
 }
 
 .contactInput,
 .contactTextarea {
   width: 100%;
-  padding: 1.1rem 1.4rem;
-  border: 1px solid transparent;
-  border-radius: 1.2rem;
+  padding: 1.25rem 1.45rem;
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 52%, transparent);
+  border-radius: 1rem;
   outline: none;
   appearance: none;
   -webkit-appearance: none;
 
-  background: color-mix(in srgb, var(--colour-glass) 70%, transparent);
-  color: var(--colour-primary-txt);
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 76%, transparent);
+  color: var(--color-on-surface);
   font-size: 1.6rem;
   font-family: inherit;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     background-color 0.2s ease;
 
   &:focus {
-    border-color: var(--colour-primary-accent);
-    background: color-mix(in srgb, var(--colour-primary-bg) 82%, transparent);
+    border-color: var(--color-primary);
+    background: color-mix(in srgb, var(--color-surface-container-lowest) 92%, transparent);
     box-shadow: 0 0 0 0.3rem
-      color-mix(in srgb, var(--colour-primary-accent) 20%, transparent);
+        color-mix(in srgb, var(--color-primary) 18%, transparent),
+      inset 0 1px 0 rgb(255 255 255 / 0.12);
+  }
+
+  &::placeholder {
+    color: color-mix(in srgb, var(--color-outline) 78%, transparent);
   }
 }
 
@@ -214,13 +230,14 @@
   align-items: center;
   gap: 0.8rem;
   width: 100%;
-  padding: 0.9rem 1.2rem;
-  border: 1px solid transparent;
-  border-radius: 1.2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 52%, transparent);
+  border-radius: 1rem;
   outline: none;
 
-  background: color-mix(in srgb, var(--colour-glass) 70%, transparent);
-  color: var(--colour-primary-txt);
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 76%, transparent);
+  color: var(--color-on-surface);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
 
   transition:
     border-color 0.2s ease,
@@ -229,10 +246,11 @@
 }
 
 .contactPhoneInput:focus-within {
-  border-color: var(--colour-primary-accent);
-  background: color-mix(in srgb, var(--colour-primary-bg) 82%, transparent);
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-surface-container-lowest) 92%, transparent);
   box-shadow: 0 0 0 0.3rem
-    color-mix(in srgb, var(--colour-primary-accent) 20%, transparent);
+      color-mix(in srgb, var(--color-primary) 18%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.12);
 }
 
 .contactPhoneInput .PhoneInputCountry {
@@ -263,7 +281,7 @@
   min-width: 0;
   border: none;
   background: transparent;
-  color: var(--colour-primary-txt);
+  color: var(--color-on-surface);
   font-size: 1.6rem;
   font-family: inherit;
   outline: none;
@@ -274,42 +292,43 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
-  padding: 0;
+  padding: 0.4rem 0 0;
 }
 
 .contactSubmit {
-  padding: 1.1rem 2.8rem;
+  min-height: 4.6rem;
+  padding: 1.2rem 2.6rem;
   border-radius: 999px;
-  border: 1px solid color-mix(in srgb, var(--colour-primary-accent) 60%, white);
+  border: 1px solid color-mix(in srgb, var(--color-primary) 58%, white);
   background: linear-gradient(
     135deg,
-    color-mix(in srgb, var(--colour-primary-accent) 88%, white 12%),
+    color-mix(in srgb, var(--color-primary-container) 82%, white 10%),
     color-mix(
       in srgb,
-      var(--colour-secondary-accent) 56%,
-      var(--colour-primary-accent)
+      var(--color-secondary-container) 48%,
+      var(--color-primary-container)
     )
   );
-  color: var(--colour-primary-bg);
+  color: var(--color-on-primary-container);
   font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: none;
   cursor: pointer;
   box-shadow:
     inset 0 1px 0 hsl(0 0% 100% / 0.32),
-    0 1rem 2.2rem hsl(var(--colour-tertiary-accent-rgb) / 0.2);
+    0 1.1rem 2.4rem color-mix(in srgb, var(--color-on-primary-fixed) 20%, transparent);
   transition:
     filter 0.2s ease,
     transform 0.2s ease,
     box-shadow 0.2s ease;
 
   &:hover {
-    filter: brightness(1.04);
+    filter: brightness(1.05) saturate(1.04);
     transform: translateY(-1px);
     box-shadow:
       inset 0 1px 0 hsl(0 0% 100% / 0.38),
-      0 1.4rem 2.6rem hsl(var(--colour-tertiary-accent-rgb) / 0.26);
+      0 1.4rem 2.6rem color-mix(in srgb, var(--color-on-primary-fixed) 26%, transparent);
   }
 
   &:disabled {
@@ -320,20 +339,24 @@
 }
 
 .contactStatus {
-  padding: 0.35rem 0.8rem;
+  padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  font-size: 1.4rem;
-  color: var(--colour-secondary-txt);
-  background: color-mix(in srgb, var(--colour-glass) 42%, transparent);
-  border: 1px solid color-mix(in srgb, var(--colour-border) 80%, transparent);
+  font-size: 1.35rem;
+  color: var(--color-on-surface-variant);
+  background: color-mix(in srgb, var(--color-surface-container) 72%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-outline-variant) 58%, transparent);
 }
 
 .contactStatus--error {
-  color: #b91c1c;
+  color: var(--color-error);
+  background: color-mix(in srgb, var(--color-error-container) 40%, transparent);
+  border-color: color-mix(in srgb, var(--color-error) 34%, transparent);
 }
 
 .contactStatus--success {
-  color: #047857;
+  color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary-fixed) 40%, transparent);
+  border-color: color-mix(in srgb, var(--color-primary) 30%, transparent);
 }
 
 @keyframes modalBackdropFade {

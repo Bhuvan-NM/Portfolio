@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/ContactForm";
 import ContactModal from "./components/ContactModal";
@@ -8,17 +9,12 @@ import History from "./pages/History";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Portfolio from "./pages/Portfolio";
-import Background from "./assets/Background";
+
 import ThemeToggle from "./components/ThemeToggle";
 import { useTheme } from "./hooks/useTheme";
 import AnimatedIntro from "./assets/AnimatedIntro";
 
 function App() {
-  const [route, setRoute] = useState(() => {
-    if (typeof window === "undefined") return "#home";
-    return window.location.hash || "#home";
-  });
-
   const { theme, toggleTheme } = useTheme();
 
   const [isContactOpen, setIsContactOpen] = useState(false);
@@ -37,30 +33,10 @@ function App() {
     }
   }, [showIntro]);
 
-  useEffect(() => {
-    const onHashChange = () => setRoute(window.location.hash || "#home");
-    window.addEventListener("hashchange", onHashChange);
-    return () => window.removeEventListener("hashchange", onHashChange);
-  }, []);
-
   const openContact = () => setIsContactOpen(true);
   const closeContact = () => setIsContactOpen(false);
   const openProfile = () => setIsProfileOpen(true);
   const closeProfile = () => setIsProfileOpen(false);
-
-  const renderPage = () => {
-    switch (route) {
-      case "#history":
-        return <History />;
-      case "#portfolio":
-        return <Portfolio />;
-      case "#contact":
-        return <Contact />;
-      case "#home":
-      default:
-        return <Home onOpenContact={openContact} />;
-    }
-  };
 
   if (showIntro) {
     return (
@@ -74,14 +50,12 @@ function App() {
   }
 
   return (
-    <>
+    <div className="appContainer">
       <ThemeToggle
         classname="theme-toggle desktop-only"
         isDark={theme === "dark"}
         onToggle={toggleTheme}
       />
-
-      <Background />
 
       <Navbar
         classname="navbar"
@@ -93,7 +67,35 @@ function App() {
         onOpenProfile={openProfile}
       />
 
-      <main className="app-content">{renderPage()}</main>
+      <main className="app-content">
+        <Routes>
+          <Route
+            path="/"
+            element={<Home onOpenContact={openContact} />}
+          />
+          <Route
+            path="/history"
+            element={<History />}
+          />
+          <Route
+            path="/portfolio"
+            element={<Portfolio />}
+          />
+          <Route
+            path="/contact"
+            element={<Contact />}
+          />
+          <Route
+            path="*"
+            element={
+              <Navigate
+                to="/"
+                replace
+              />
+            }
+          />
+        </Routes>
+      </main>
 
       <ContactModal
         open={isContactOpen}
@@ -107,7 +109,7 @@ function App() {
         open={isProfileOpen}
         onClose={closeProfile}
       />
-    </>
+    </div>
   );
 }
 

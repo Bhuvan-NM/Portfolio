@@ -9,7 +9,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--colour-primary-bg);
+  background: radial-gradient(90rem 60rem at 12% -8%, color-mix(in srgb, var(--color-primary-container) 12%, transparent), transparent 58%), radial-gradient(80rem 50rem at 92% 8%, color-mix(in srgb, var(--color-secondary-container) 10%, transparent), transparent 56%), linear-gradient(180deg, var(--color-background), var(--color-surface-container-low));
 }
 
 .animated-text-heading {
@@ -21,7 +21,7 @@
   font-weight: 900;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  color: var(--colour-primary-txt);
+  color: var(--color-on-background);
   z-index: 200000000;
 }
 
@@ -29,7 +29,7 @@
   display: inline-block;
   opacity: 0;
   animation: fadeInUp 0.6s ease forwards;
-  color: var(--colour-secondary-txt);
+  color: var(--color-on-surface-variant);
 }
 
 .heading-container.exit {

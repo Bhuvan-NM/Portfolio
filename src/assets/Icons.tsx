@@ -586,3 +586,33 @@ export const LocationIcon = ({ className }: { className?: string }) => {
     </svg>
   );
 };
+
+export const OutwardArrow = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="currentColor"
+    >
+      <path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z" />
+    </svg>
+  );
+};
+
+export const DownArrow = ({ className }: { className?: string }) => {
+  return (
+    <svg
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      height="24px"
+      viewBox="0 -960 960 960"
+      width="24px"
+      fill="currentColor"
+    >
+      <path d="M440-800v487L216-537l-56 57 320 320 320-320-56-57-224 224v-487h-80Z" />
+    </svg>
+  );
+};

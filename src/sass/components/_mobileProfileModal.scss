@@ -7,7 +7,7 @@
   display: grid;
   place-items: center;
   padding: 2rem;
-  background: color-mix(in srgb, var(--colour-modal-bg) 55%, transparent);
+  background: color-mix(in srgb, var(--color-inverse-surface) 55%, transparent);
   backdrop-filter: blur(4px);
   animation: mobileProfileBackdrop 240ms ease-out;
 }
@@ -19,8 +19,8 @@
   border-radius: 2rem;
   background-color: color-mix(
     in srgb,
-    var(--colour-primary-bg) 95%,
-    var(--colour-tertiary-accent)
+    var(--color-background) 95%,
+    var(--color-on-primary)
   );
   backdrop-filter: blur(12px);
   animation: mobileProfileRise 320ms ease-out;
@@ -31,13 +31,13 @@
   gap: 1.8rem;
   padding: 2rem;
   border-radius: 2rem;
-  background: color-mix(in srgb, var(--colour-glass-light) 75%, transparent);
+  background: color-mix(in srgb, var(--color-surface-container-high) 75%, transparent);
   backdrop-filter: blur(10px) brightness(120%);
 
-  border: 1px solid var(--colour-border);
+  border: 1px solid var(--color-outline-variant);
   box-shadow: inset 0 1px 1px rgb(0 0 0 / 0.12),
     0 2.6rem 6rem
-      color-mix(in srgb, var(--colour-tertiary-accent) 25%, transparent);
+      color-mix(in srgb, var(--color-on-primary) 25%, transparent);
 }
 
 .profileCard-img-container {
@@ -64,7 +64,7 @@
   font-size: 1.1rem;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--colour-accent-txt);
+  color: var(--color-outline);
 }
 
 .mobile-profile-title {
@@ -72,13 +72,13 @@
   font-size: 2.2rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--colour-primary-txt);
+  color: var(--color-on-background);
 }
 
 .mobile-profile-subtitle {
   margin: 0.6rem 0 0;
   font-size: 1.4rem;
-  color: var(--colour-secondary-txt);
+  color: var(--color-on-surface-variant);
 }
 
 .mobile-profile-close {
@@ -87,15 +87,15 @@
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 999px;
-  border: 1px solid var(--colour-border);
+  border: 1px solid var(--color-outline-variant);
   background: transparent;
-  color: var(--colour-secondary-txt);
+  color: var(--color-on-surface-variant);
   font-size: 1.4rem;
   cursor: pointer;
 }
 
 .mobile-profile-close:focus-visible {
-  outline: 2px solid var(--colour-primary-accent);
+  outline: 2px solid var(--color-primary);
   outline-offset: 3px;
 }
 
@@ -118,27 +118,27 @@
   gap: 0.4rem;
   padding: 1rem 1.2rem;
   border-radius: 1.2rem;
-  background: color-mix(in srgb, var(--colour-glass-light) 45%, transparent);
+  background: color-mix(in srgb, var(--color-surface-container-high) 45%, transparent);
   border: 1px solid
-    color-mix(in srgb, var(--colour-tertiary-accent) 8%, transparent);
+    color-mix(in srgb, var(--color-on-primary) 8%, transparent);
 }
 
 .mobile-profile-label {
   font-size: 1rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--colour-accent-txt);
+  color: var(--color-outline);
 }
 
 .mobile-profile-value {
   font-size: 1.5rem;
-  color: var(--colour-secondary-accent);
+  color: var(--color-secondary);
   text-decoration: none;
   word-break: break-word;
 }
 
 .mobile-profile-value:hover {
-  color: var(--colour-primary-accent);
+  color: var(--color-primary);
 }
 
 @keyframes mobileProfileBackdrop {

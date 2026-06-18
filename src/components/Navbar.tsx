@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Link, NavLink } from "react-router-dom";
 
 interface NavbarProps {
   classname?: string;
@@ -6,33 +7,17 @@ interface NavbarProps {
 }
 
 const items = [
-  { label: "Home", href: "#home" },
-  { label: "History", href: "#history" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", to: "/" },
+  { label: "History", to: "/history" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ classname = "", onOpenContact }) => {
-  const [activeHref, setActiveHref] = useState(items[0]?.href ?? "#");
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const syncActiveHref = () => {
-      const hash = window.location.hash;
-      const match = items.some((item) => item.href === hash);
-      setActiveHref(match ? hash : items[0]?.href ?? "#");
-    };
-
-    syncActiveHref();
-    window.addEventListener("hashchange", syncActiveHref);
-    return () => window.removeEventListener("hashchange", syncActiveHref);
-  }, []);
-
   return (
     <>
       <header className={classname}>
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="header-logo"
         >
           Bhuvan
@@ -40,18 +25,18 @@ const Navbar: React.FC<NavbarProps> = ({ classname = "", onOpenContact }) => {
             className="header-logo-dot"
             aria-hidden="true"
           />
-        </a>
+        </Link>
 
         <nav>
           {items.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
+            <NavLink
+              key={item.to}
+              to={item.to}
               className="navbar--component"
-              aria-current={activeHref === item.href ? "page" : undefined}
+              end={item.to === "/"}
             >
               {item.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
         <button

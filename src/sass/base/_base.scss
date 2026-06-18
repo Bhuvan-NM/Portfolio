@@ -30,6 +30,14 @@ html {
 body {
   box-sizing: border-box;
   padding: 0rem;
+  background: radial-gradient(90rem 60rem at 12% -8%, color-mix(in srgb, var(--color-primary-container) 12%, transparent), transparent 58%), radial-gradient(80rem 50rem at 92% 8%, color-mix(in srgb, var(--color-secondary-container) 10%, transparent), transparent 56%), linear-gradient(180deg, var(--color-background), var(--color-surface-container-low));
+  color: var(--color-on-background);
+}
+
+.appContainer {
+  background: radial-gradient(90rem 60rem at 12% -8%, color-mix(in srgb, var(--color-primary-container) 12%, transparent), transparent 58%), radial-gradient(80rem 50rem at 92% 8%, color-mix(in srgb, var(--color-secondary-container) 10%, transparent), transparent 56%), linear-gradient(180deg, var(--color-background), var(--color-surface-container-low));
+  color: var(--color-on-background);
+  min-height: 100dvh;
 }
 
 .desktop-only {
