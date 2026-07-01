@@ -4,9 +4,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 5rem 1.25rem 2rem;
+  justify-content: flex-start;
+  gap: 2rem;
+  min-height: calc(100svh - 10rem);
+  padding: clamp(2rem, 4vh, 4rem) 2rem 2rem;
 }
 
 .homeMain {
@@ -14,7 +15,7 @@
   grid-template-columns: 1fr;
   align-items: center;
   gap: 2rem;
-  width: min(100%, 72rem);
+  width: min(80%, 57.6rem);
 }
 
 .homeStatus {
@@ -180,6 +181,89 @@
   }
 }
 
+.ribbon-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: min(80%, 57.6rem);
+  overflow: hidden;
+  padding: 0.65rem 0;
+  border-radius: 999px;
+}
+
+.ribbon-wrapper::before,
+.ribbon-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 5rem;
+  pointer-events: none;
+}
+
+.ribbon-wrapper::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--color-background), transparent);
+}
+
+.ribbon-wrapper::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--color-background), transparent);
+}
+
+.tech-ribbon {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  will-change: transform;
+}
+
+.tech-ribbon__group {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.75rem;
+  min-width: max-content;
+}
+
+.tech-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  padding: 0.72rem 1.2rem;
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--color-on-surface) 86%, var(--color-primary));
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-primary-container) 10%, transparent),
+      color-mix(in srgb, var(--color-secondary-container) 8%, transparent)
+    ),
+    color-mix(in srgb, var(--color-surface-container-lowest) 72%, transparent);
+  border: 1px solid
+    color-mix(in srgb, var(--color-outline-variant) 42%, transparent);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 0.8rem 1.8rem
+      color-mix(in srgb, var(--color-on-primary-fixed) 12%, transparent);
+  backdrop-filter: blur(14px) saturate(135%);
+  -webkit-backdrop-filter: blur(14px) saturate(135%);
+}
+
+@keyframes scrollRibbon {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 @include respond(md) {
   .homeContainer {
     padding: 2rem;
@@ -189,6 +273,10 @@
     grid-template-columns: minmax(0, 1fr) minmax(34rem, 60rem);
     gap: clamp(2rem, 6vw, 5rem);
     width: min(100%, 100rem);
+  }
+
+  .ribbon-wrapper {
+    width: min(80%, 80rem);
   }
 
   .homeTextContent,
@@ -204,15 +292,6 @@
   .heroImgContainer {
     justify-self: end;
     width: min(100%, 50rem);
-
-    img {
-      filter: grayscale(100%) brightness(90%);
-    }
-
-    img:hover {
-      filter: grayscale(0%) brightness(100%);
-      transition: filter 0.3s ease-in-out;
-    }
   }
 }
 
@@ -220,6 +299,11 @@
   .homeMain {
     width: min(100%, 120rem);
     padding: 0 3rem;
+  }
+
+  .ribbon-wrapper {
+    width: min(80%, 96rem);
+    padding-inline: 3rem;
   }
 
   .homeIntro--heading {
@@ -232,6 +316,10 @@
     grid-template-columns: minmax(0, 1fr) minmax(34rem, 60rem);
     gap: clamp(2rem, 6vw, 5rem);
     width: min(100%, 150rem);
+  }
+
+  .ribbon-wrapper {
+    width: min(80%, 120rem);
   }
 }
 
