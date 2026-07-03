@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { createPortal } from "react-dom";
 import ThemeToggle from "./ThemeToggle";
 import { useTheme } from "../hooks/useTheme";
+import profileCardImage from "../assets/profilecardImg.jpg";
 
 type MobileProfileModalProps = {
   open: boolean;
@@ -69,8 +70,8 @@ export default function MobileProfileModal({
           <div className="mobile-profile-header">
             <div className="profileCard-img-container">
               <img
-                src="src/assets/profilecardImg.JPG"
-                alt="profilecardIMG"
+                src={profileCardImage}
+                alt="Profile"
                 className="profileCard-img"
               />
             </div>
