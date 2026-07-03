@@ -99,7 +99,7 @@ function App() {
 
       <ContactModal
         open={isContactOpen}
-        title="Let's chat"
+        title="Let's Talk"
         onClose={closeContact}
       >
         <ContactForm />

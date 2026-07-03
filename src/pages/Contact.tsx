@@ -1,7 +1,7 @@
-import { ContactIcon } from "../assets/Icons";
 import { InfoCard } from "../components/InfoCard";
 import ContactForm from "../components/ContactForm";
 import {
+  ContactIcon,
   LinkedInIcon,
   GithubIcon,
   LocationIcon,

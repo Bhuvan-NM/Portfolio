@@ -1,9 +1,29 @@
 import heroImage from "../assets/heroImage-transparent.png";
-import { DownArrow, OutwardArrow } from "../assets/Icons";
-import { motion, useAnimationFrame, useMotionValue } from "motion/react";
+import {
+  CSSIcon,
+  DownArrow,
+  GithubIcon,
+  HTMLIcon,
+  ReactIcon,
+  SassIcon,
+  TypeScriptIcon,
+  OutwardArrow,
+} from "../assets/Icons";
+import {
+  motion,
+  useAnimationFrame,
+  useMotionValue,
+  useScroll,
+  useTransform,
+} from "motion/react";
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import resume from "../assets/resume.pdf";
+import TechnicalSkillscard, {
+  type TechnicalSkill,
+  type TechnicalSkillIcon,
+} from "../assets/TechnicalSkillscard";
 
 type HomeProps = {
   onOpenContact?: () => void;
@@ -24,7 +44,46 @@ const initialFrameworks: string[] = [
   "TypeScript",
 ];
 
-const technicalSkills = {};
+const frontendSkills: Record<string, TechnicalSkillIcon> = {
+  React: ReactIcon,
+  TypeScript: TypeScriptIcon,
+  HTML: HTMLIcon,
+  CSS: CSSIcon,
+  Sass: SassIcon,
+  GitHub: GithubIcon,
+};
+
+const backendSkills: Record<string, TechnicalSkillIcon> = {
+  NodeJS: ReactIcon,
+  ExpressJS: ReactIcon,
+  MongoDB: ReactIcon,
+  GraphQL: ReactIcon,
+  MSSQL: ReactIcon,
+  TypeORM: ReactIcon,
+};
+
+const testingSkills: Record<string, TechnicalSkillIcon> = {
+  Jest: ReactIcon,
+  Postman: ReactIcon,
+  Selenium: ReactIcon,
+};
+
+const cICDSkills: Record<string, TechnicalSkillIcon> = {
+  GitHubActions: ReactIcon,
+  Docker: ReactIcon,
+  Jenkins: ReactIcon,
+  TravisCI: ReactIcon,
+  CircleCI: ReactIcon,
+};
+
+const getSkillItems = (
+  skills: Record<string, TechnicalSkillIcon>,
+): TechnicalSkill[] => {
+  return Object.entries(skills).map(([skillName, skillIcon]) => ({
+    skillName,
+    skillIcon,
+  }));
+};
 
 const ribbonItems = [...initialFrameworks, ...initialFrameworks];
 
@@ -38,10 +97,15 @@ const handleDownloadCV = () => {
 };
 
 const Home = ({ onOpenContact: _onOpenContact }: HomeProps) => {
+  const navigate = useNavigate();
   const x = useMotionValue(0);
   const ribbonRef = useRef<HTMLDivElement | null>(null);
   const ribbonGroupRef = useRef<HTMLDivElement | null>(null);
   const speed = 150; // pixels per second
+
+  const handleViewWork = () => {
+    navigate("/history");
+  };
 
   useAnimationFrame((_, delta) => {
     const moveBy = (speed * delta) / 1000;
@@ -138,7 +202,10 @@ const Home = ({ onOpenContact: _onOpenContact }: HomeProps) => {
             transition={{ duration: 1.25, ease: "easeInOut" }}
             className="homeMainBTN"
           >
-            <button className="viewWorkBtn">
+            <button
+              className="viewWorkBtn"
+              onClick={handleViewWork}
+            >
               View Work
               <OutwardArrow className="homeBtnIcon homeBtnIcon--outward" />
             </button>
@@ -164,7 +231,34 @@ const Home = ({ onOpenContact: _onOpenContact }: HomeProps) => {
       </div>
 
       <section className="technicalSkills">
-        <h2 className="technicalSkills--heading">Technical Skills</h2>
+        <h2 className="technicalSkills--heading">Technical Expertise</h2>
+        <p className="technicalSkills--description">
+          A curated stack for building robust, beautiful and resposive
+          interfaces.
+        </p>
+        <div className="technicalSkills--container">
+          <TechnicalSkillscard
+            cardHeading="Frontend Skills"
+            cardDescription="Crafting responsive, accessible, and engaging interfaces with modern web technologies and polished interaction patterns."
+            skills={getSkillItems(frontendSkills)}
+          />
+          <TechnicalSkillscard
+            cardHeading="Backend Skills"
+            cardDescription="Building scalable, secure server applications with reliable data flows, efficient processing, and maintainable API design."
+            skills={getSkillItems(backendSkills)}
+          />
+          <TechnicalSkillscard
+            cardHeading="CI/CD Skills"
+            cardDescription="Streamlining deployment pipelines, infrastructure workflows, and release automation for fast, reliable software delivery."
+            skills={getSkillItems(cICDSkills)}
+          />
+
+          <TechnicalSkillscard
+            cardHeading="Testing"
+            cardDescription="Ensuring product reliability with practical test coverage, API validation, browser checks, and repeatable quality gates."
+            skills={getSkillItems(testingSkills)}
+          />
+        </div>
       </section>
     </div>
   );
