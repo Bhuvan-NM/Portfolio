@@ -9,13 +9,7 @@ import {
   TypeScriptIcon,
   OutwardArrow,
 } from "../assets/Icons";
-import {
-  motion,
-  useAnimationFrame,
-  useMotionValue,
-  useScroll,
-  useTransform,
-} from "motion/react";
+import { motion, useAnimationFrame, useMotionValue } from "motion/react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -24,10 +18,6 @@ import TechnicalSkillscard, {
   type TechnicalSkill,
   type TechnicalSkillIcon,
 } from "../assets/TechnicalSkillscard";
-
-type HomeProps = {
-  onOpenContact?: () => void;
-};
 
 const initialFrameworks: string[] = [
   "React.js",
@@ -96,7 +86,7 @@ const handleDownloadCV = () => {
   document.body.removeChild(link);
 };
 
-const Home = ({ onOpenContact: _onOpenContact }: HomeProps) => {
+const Home = () => {
   const navigate = useNavigate();
   const x = useMotionValue(0);
   const ribbonRef = useRef<HTMLDivElement | null>(null);
@@ -233,31 +223,61 @@ const Home = ({ onOpenContact: _onOpenContact }: HomeProps) => {
       <section className="technicalSkills">
         <h2 className="technicalSkills--heading">Technical Expertise</h2>
         <p className="technicalSkills--description">
-          A curated stack for building robust, beautiful and resposive
+          A curated stack for building robust, beautiful and responsive
           interfaces.
         </p>
         <div className="technicalSkills--container">
-          <TechnicalSkillscard
-            cardHeading="Frontend Skills"
-            cardDescription="Crafting responsive, accessible, and engaging interfaces with modern web technologies and polished interaction patterns."
-            skills={getSkillItems(frontendSkills)}
-          />
-          <TechnicalSkillscard
-            cardHeading="Backend Skills"
-            cardDescription="Building scalable, secure server applications with reliable data flows, efficient processing, and maintainable API design."
-            skills={getSkillItems(backendSkills)}
-          />
-          <TechnicalSkillscard
-            cardHeading="CI/CD Skills"
-            cardDescription="Streamlining deployment pipelines, infrastructure workflows, and release automation for fast, reliable software delivery."
-            skills={getSkillItems(cICDSkills)}
-          />
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <TechnicalSkillscard
+              cardHeading="Frontend Skills"
+              cardDescription="Crafting responsive, accessible, and engaging interfaces with modern web technologies and polished interaction patterns."
+              skills={getSkillItems(frontendSkills)}
+            />
+          </motion.div>
 
-          <TechnicalSkillscard
-            cardHeading="Testing"
-            cardDescription="Ensuring product reliability with practical test coverage, API validation, browser checks, and repeatable quality gates."
-            skills={getSkillItems(testingSkills)}
-          />
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <TechnicalSkillscard
+              cardHeading="Backend Skills"
+              cardDescription="Building scalable, secure server applications with reliable data flows, efficient processing, and maintainable API design."
+              skills={getSkillItems(backendSkills)}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <TechnicalSkillscard
+              cardHeading="CI/CD Skills"
+              cardDescription="Streamlining deployment pipelines, infrastructure workflows, and release automation for fast, reliable software delivery."
+              skills={getSkillItems(cICDSkills)}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.3 }}
+          >
+            <TechnicalSkillscard
+              cardHeading="Testing"
+              cardDescription="Ensuring product reliability with practical test coverage, API validation, browser checks, and repeatable quality gates."
+              skills={getSkillItems(testingSkills)}
+            />
+          </motion.div>
         </div>
       </section>
     </div>

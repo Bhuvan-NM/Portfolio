@@ -71,7 +71,7 @@ function App() {
         <Routes>
           <Route
             path="/"
-            element={<Home onOpenContact={openContact} />}
+            element={<Home />}
           />
           <Route
             path="/history"
