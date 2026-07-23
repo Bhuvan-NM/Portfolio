@@ -7,8 +7,9 @@
     "dev": "vite --host",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "compile:sass": "sass src/sass/main.scss src/css/style.css -w"
+    "preview": "npm run build && wrangler dev",
+    "compile:sass": "sass src/sass/main.scss src/css/style.css -w",
+    "deploy": "npm run build && wrangler deploy"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -24,6 +25,7 @@
     "react-router-dom": "^7.13.2"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.46.0",
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
@@ -39,6 +41,7 @@
     "sass": "^1.97.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "wrangler": "^4.113.0"
   }
 }
